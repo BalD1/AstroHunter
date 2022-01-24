@@ -820,7 +820,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 489d5048b5bb55944914c7f55bfc469d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnsPoints: []
+  spawnsPoints:
+  - enemyName: Snake
+    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    point: {fileID: 0}
+  - enemyName: Snake
+    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    point: {fileID: 0}
+  - enemyName: Snake
+    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    point: {fileID: 0}
+  - enemyName: Snake
+    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    point: {fileID: 0}
+  - enemyName: Snake
+    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    point: {fileID: 0}
+  - enemyName: Snake
+    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    point: {fileID: 0}
+  - enemyName: Snake
+    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    point: {fileID: 0}
 --- !u!1 &1093970937 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8387411987796522358, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
@@ -1824,10 +1845,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8387411987273156526, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
-      propertyPath: fire_CD
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 8387411987796522356, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
       propertyPath: m_RootOrder
       value: 15
