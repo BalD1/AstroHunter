@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -42,6 +43,17 @@ public class UIManager : MonoBehaviour
                 Debug.LogError(GS + " not found in switch statement.");
                 break;
         }
+    }
+
+    public void FillBar(ref GameObject bar, float currentAmount, float maxAmount)
+    {
+        Image img = bar.GetComponent<Image>();
+        if (img == null)
+        {
+            Debug.LogError(bar + " does not countain an Image.");
+            return;
+        }
+        img.fillAmount = currentAmount / maxAmount;
     }
 
 }

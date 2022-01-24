@@ -59,11 +59,11 @@ public class Enemies : Characters
     public override void TakeDamages(int amount)
     {
         base.TakeDamages(amount);
-        GameManager.Instance.EnemiesInWave--;
     }
 
     protected override void Death()
     {
+        GameManager.Instance.EnemiesInWave--;
         Destroy(this.gameObject);
     }
 

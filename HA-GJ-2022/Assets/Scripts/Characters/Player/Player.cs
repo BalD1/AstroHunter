@@ -76,4 +76,11 @@ public class Player : Characters
         arm.transform.localPosition = faceRight ? rightArmPosition : leftArmPosition;
         armSprite.transform.localPosition = faceRight ? rightArmSpritePosition : leftArmSpritePosition;
     }
+
+    public override void TakeDamages(int amount)
+    {
+        base.TakeDamages(amount);
+
+        UIManager.Instance.FillBar(ref hpBar, characterStats.currentHP, characterStats.maxHP);
+    }
 }

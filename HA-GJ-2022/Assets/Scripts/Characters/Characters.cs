@@ -6,6 +6,7 @@ public class Characters : MonoBehaviour
 {
     [SerializeField] protected SCR_characters characterInfosScriptable;
     [SerializeField] protected Rigidbody2D body;
+    [SerializeField] protected GameObject hpBar;
 
     protected SCR_characters.stats characterStats;
     protected float invincibility_TIMER;
@@ -34,6 +35,8 @@ public class Characters : MonoBehaviour
             Death();
 
         invincibility_TIMER = characterStats.invincibleTime;
+
+        UIManager.Instance.FillBar(ref hpBar, characterStats.currentHP, characterStats.maxHP);
     }
 
     protected virtual void Death()
