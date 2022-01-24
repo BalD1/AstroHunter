@@ -35,8 +35,6 @@ public class Characters : MonoBehaviour
             Death();
 
         invincibility_TIMER = characterStats.invincibleTime;
-
-        UIManager.Instance.FillBar(ref hpBar, characterStats.currentHP, characterStats.maxHP);
     }
 
     protected virtual void Death()
