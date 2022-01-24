@@ -17,8 +17,11 @@ public class Characters : MonoBehaviour
 
     protected void CallUpdate()
     {
-        if (invincibility_TIMER > 0)
-            invincibility_TIMER -= Time.deltaTime;
+        if (GameManager.Instance.GameState == GameManager.GameStates.InGame)
+        {
+            if (invincibility_TIMER > 0)
+                invincibility_TIMER -= Time.deltaTime;
+        }
     }
 
     public virtual void TakeDamages(int amount)

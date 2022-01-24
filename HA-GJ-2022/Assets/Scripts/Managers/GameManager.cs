@@ -67,6 +67,25 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        GameState = GameStates.InGame;
+    }
+
+    private bool isInWave;
+    public bool IsInWave
+    {
+        get => isInWave;
+        set
+        {
+            isInWave = value;
+            if (value)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
     }
 
     public Camera getMainCamera()

@@ -37,34 +37,27 @@ public class PoolManager : MonoBehaviour
     }
 
     public List<Pool> pools;
-    public Dictionary<tags, Queue<GameObject>> poolDictionnary;
+    public Dictionary<tags, List<GameObject>> poolDictionnary;
 
     private void Start()
     {
-        poolDictionnary = new Dictionary<tags, Queue<GameObject>>();
+        poolDictionnary = new Dictionary<tags, List<GameObject>>();
 
         foreach (Pool pool in pools)
         {
-            Queue<GameObject> objectPool = new Queue<GameObject>();
+            List<GameObject> objectPool = new List<GameObject>();
 
             for (int i = 0; i < pool.size; i++)
             {
                 GameObject obj = Instantiate(pool.prefab);
                 obj.SetActive(false);
-                objectPool.Enqueue(obj);
+                objectPool.Add(obj);
             }
 
             poolDictionnary.Add(pool.tag, objectPool);
         }
     }
 
-    /// <summary>
-    /// Spawns the object <paramref name="tag"/> at <paramref name="position"/> with <paramref name="rotation"/> 
-    /// </summary>
-    /// <param name="tag"></param>
-    /// <param name="position"></param>
-    /// <param name="rotation"></param>
-    /// <returns></returns>
     public GameObject SpawnFromPool(tags tag, Vector3 position, Quaternion rotation)
     {
         if (!poolDictionnary.ContainsKey(tag))
@@ -72,14 +65,20 @@ public class PoolManager : MonoBehaviour
             Debug.LogError("Pool with tag " + tag + " doesn't exist");
             return null;
         }
-        GameObject objToSpawn = poolDictionnary[tag].Dequeue();
+        foreach(GameObject obj in poolDictionnary[tag])
+        {
+            if (obj.activeSelf == false)
+            {
+                obj.transform.position = position;
+                obj.transform.rotation = rotation;
+                obj.SetActive(true);
+                return obj;
+            }
+        }
 
-        objToSpawn.transform.position = position;
-        objToSpawn.transform.rotation = rotation;
-        objToSpawn.SetActive(true);
-
-        poolDictionnary[tag].Enqueue(objToSpawn);
-        return objToSpawn;
+        GameObject newObj = Instantiate(poolDictionnary[tag][0], position, rotation);
+        poolDictionnary[tag].Add(newObj);
+        return newObj;
     }
 
 

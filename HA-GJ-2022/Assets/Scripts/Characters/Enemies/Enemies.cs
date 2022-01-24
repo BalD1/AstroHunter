@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Enemies : Characters
 {
+    [SerializeField] private float waitBeforeMovements_CD = 1;
+    private float waitBeforeMovements_TIMER;
+
     private GameObject playerRef;
     private Vector2 direction;
 
@@ -15,6 +18,9 @@ public class Enemies : Characters
 
     private void Update()
     {
+        if (waitBeforeMovements_TIMER > 0)
+            waitBeforeMovements_TIMER -= Time.deltaTime;
+
         CallUpdate();
         direction = playerRef.transform.position - this.transform.position;
         direction.Normalize();
@@ -22,13 +28,17 @@ public class Enemies : Characters
 
     private void FixedUpdate()
     {
-        Translate(direction);
+        if (CanMove())
+            Translate(direction);
+        else
+            this.body.velocity *= 0.97f;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && waitBeforeMovements_TIMER <= 0)
         {
+            waitBeforeMovements_TIMER = waitBeforeMovements_CD;
             Player p = collision.GetComponentInParent<Player>();
             p.TakeDamages(characterStats.damages);
         }
@@ -40,4 +50,6 @@ public class Enemies : Characters
         if (characterStats.currentHP <= 0)
             Destroy(this.gameObject);
     }
+
+    public bool CanMove() { return waitBeforeMovements_TIMER <= 0; }
 }
