@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
             enemiesInWave = value;
             if (value == 0)
             {
-                isInWave = false;
+                IsInWave = false;
             }
         }
     }
