@@ -41,7 +41,7 @@ public class Characters : MonoBehaviour
 
     }
 
-    protected void Translate(Vector2 direction)
+    protected virtual void Translate(Vector2 direction)
     {
         this.body.velocity = new Vector2(direction.x * characterStats.speed, 
                                          direction.y * characterStats.speed);

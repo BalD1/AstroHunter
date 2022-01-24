@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemies : Characters
 {
+    [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private float waitBeforeMovements_CD = 1;
     private float waitBeforeMovements_TIMER;
 
@@ -28,10 +29,7 @@ public class Enemies : Characters
 
     private void FixedUpdate()
     {
-        if (CanMove())
-            Translate(direction);
-        else
-            this.body.velocity *= 0.97f;
+        Translate(direction);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -42,6 +40,20 @@ public class Enemies : Characters
             Player p = collision.GetComponentInParent<Player>();
             p.TakeDamages(characterStats.damages);
         }
+    }
+
+    protected override void Translate(Vector2 direction)
+    {
+        if (CanMove())
+            base.Translate(direction);
+        else
+            this.body.velocity *= 0.97f;
+
+        float angle = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
+
+        sprite.flipY = !(angle > -90f && angle < 90);
+
+        body.rotation = angle;
     }
 
     public override void TakeDamages(int amount)
