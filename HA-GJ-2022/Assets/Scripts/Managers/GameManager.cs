@@ -7,6 +7,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private GameObject player;
 
+    public int EnemiesInWave
+    {
+        get => enemiesInWave;
+        set
+        {
+            enemiesInWave = value;
+            if (value == 0)
+            {
+                isInWave = false;
+            }
+        }
+    }
+    private int enemiesInWave = 0;
+
     #region Game State
 
     public enum GameStates

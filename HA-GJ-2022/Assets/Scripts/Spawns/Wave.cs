@@ -23,6 +23,7 @@ public class Wave : MonoBehaviour
         foreach(SpawnPointData sp in spawnsPoints)
         {
             Instantiate(sp.enemy, sp.point.transform.position, Quaternion.identity);
+            GameManager.Instance.EnemiesInWave++;
         }
         this.gameObject.SetActive(false);
     }

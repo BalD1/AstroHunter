@@ -44,7 +44,7 @@ public class Player : Characters
             Movements();
     }
 
-    protected override void Movements()
+    private void Movements()
     {
         direction = new Vector2(Input.GetAxis("Horizontal"),
                                 Input.GetAxis("Vertical"));

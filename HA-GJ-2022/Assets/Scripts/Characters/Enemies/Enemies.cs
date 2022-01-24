@@ -47,8 +47,12 @@ public class Enemies : Characters
     public override void TakeDamages(int amount)
     {
         base.TakeDamages(amount);
-        if (characterStats.currentHP <= 0)
-            Destroy(this.gameObject);
+        GameManager.Instance.EnemiesInWave--;
+    }
+
+    protected override void Death()
+    {
+        Destroy(this.gameObject);
     }
 
     public bool CanMove() { return waitBeforeMovements_TIMER <= 0; }

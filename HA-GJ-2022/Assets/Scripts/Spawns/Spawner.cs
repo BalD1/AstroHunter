@@ -22,5 +22,7 @@ public class Spawner : MonoBehaviour
     {
         waves[wavesIndex].gameObject.SetActive(true);
         wavesIndex++;
+        if (wavesIndex > waves.Count)
+            GameManager.Instance.GameState = GameManager.GameStates.Win;
     }
 }

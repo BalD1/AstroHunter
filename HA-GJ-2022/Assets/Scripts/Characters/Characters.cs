@@ -29,15 +29,14 @@ public class Characters : MonoBehaviour
         if (invincibility_TIMER > 0)
             return;
 
-        Debug.Log(amount);
         characterStats.currentHP -= amount;
         if (characterStats.currentHP <= 0)
-            Debug.Log("dead mdr");
+            Death();
 
         invincibility_TIMER = characterStats.invincibleTime;
     }
 
-    protected virtual void Movements()
+    protected virtual void Death()
     {
 
     }
