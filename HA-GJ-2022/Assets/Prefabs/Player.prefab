@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb6a9b921553d94a8c0f88ae9018ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire_CD: 0.4
+  fire_CD: 0.3
   projectilesSpeed: 15
   firePoint: {fileID: 8387411987200296898}
   owner: {fileID: 8387411987796522355}

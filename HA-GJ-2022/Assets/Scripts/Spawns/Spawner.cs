@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public enum EnemiesTags
+    {
+        Snake,
+    }
+    public static Dictionary<EnemiesTags, GameObject> enemiesByTag;
+    public static List<EnemiesTags> enemiesByTagList;
+        
     [SerializeField] private List<Wave> waves;
     private int wavesIndex = 0;
 

@@ -16,6 +16,6 @@ MonoBehaviour:
     name: Player
     maxHP: 10
     currentHP: 10
-    speed: 15
+    speed: 25
     damages: 1
     invincibleTime: 1
