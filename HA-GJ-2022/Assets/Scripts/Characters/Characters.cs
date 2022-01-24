@@ -4,17 +4,34 @@ using UnityEngine;
 
 public class Characters : MonoBehaviour
 {
-    [SerializeField] protected SCR_characters characterInfos;
+    [SerializeField] protected SCR_characters characterInfosScriptable;
     [SerializeField] protected Rigidbody2D body;
 
-    private void Start()
+    protected SCR_characters.stats characterStats;
+    protected float invincibility_TIMER;
+
+    protected void CallStart()
     {
-        
+        characterStats = characterInfosScriptable.CharacterStats;
     }
 
-    private void Update()
+    protected void CallUpdate()
     {
-        
+        if (invincibility_TIMER > 0)
+            invincibility_TIMER -= Time.deltaTime;
+    }
+
+    public virtual void TakeDamages(int amount)
+    {
+        if (invincibility_TIMER > 0)
+            return;
+
+        Debug.Log(amount);
+        characterStats.currentHP -= amount;
+        if (characterStats.currentHP <= 0)
+            Debug.Log("dead mdr");
+
+        invincibility_TIMER = characterStats.invincibleTime;
     }
 
     protected virtual void Movements()
@@ -24,7 +41,23 @@ public class Characters : MonoBehaviour
 
     protected void Translate(Vector2 direction)
     {
-        this.body.velocity = new Vector2(direction.x * characterInfos.CharacterStats.speed, 
-                                         direction.y * characterInfos.CharacterStats.speed);
+        this.body.velocity = new Vector2(direction.x * characterStats.speed, 
+                                         direction.y * characterStats.speed);
+    }
+    protected void TranslateTo(Transform target)
+    {
+        Vector2 direction = target.transform.position - this.transform.position;
+        direction.Normalize();
+        body.MovePosition((Vector2)this.transform.position + (direction * characterStats.speed * Time.deltaTime));
+    }
+
+    protected void AddForce(Vector2 direction)
+    {
+        this.body.AddForce(direction * characterStats.speed);
+    }
+
+    public SCR_characters.stats GetStats()
+    {
+        return this.characterStats;
     }
 }

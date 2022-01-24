@@ -16,31 +16,4 @@ public class SCR_characters : ScriptableObject
         public float invincibleTime;
     }
     public stats CharacterStats;
-
-    #region prints
-    public void PrintCharacter()
-    {
-        Debug.Log(CharacterStats.name + " : \n" +
-                  "HP : " + CharacterStats.currentHP + " / " + CharacterStats.maxHP + "                " +
-                  "Speed : " + CharacterStats.speed + "                " +
-                  "Damages : " + CharacterStats.damages + "                " +
-                  "Invincibility time : " + CharacterStats.invincibleTime);
-    }
-    public void PrintCharacter(SCR_characters.stats targetStats)
-    {
-        Debug.Log(targetStats.name + " : \n" +
-                  "HP : " + targetStats.currentHP + " / " + targetStats.maxHP + "                " +
-                  "Speed : " + targetStats.speed + "                " +
-                  "Damages : " + targetStats.damages + "                " +
-                  "Invincibility time : " + targetStats.invincibleTime);
-    }
-    public void PrintCharacterHP()
-    {
-        Debug.Log(CharacterStats.name + " : " + CharacterStats.currentHP + " / " + CharacterStats.maxHP);
-    }
-    public void PrintCharacterHP(SCR_characters.stats targetStats)
-    {
-        Debug.Log(targetStats.name + " : " + targetStats.currentHP + " / " + targetStats.maxHP);
-    }
-    #endregion
 }

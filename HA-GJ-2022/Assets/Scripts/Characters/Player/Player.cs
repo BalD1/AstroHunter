@@ -5,18 +5,21 @@ using UnityEngine;
 public class Player : Characters
 {
     [SerializeField] private GameObject arm;
+    [SerializeField] private GameObject weapon;
 
     private Vector2 direction;
+    private Vector2 pastDirection;
     private Vector2 selfPosByCam;
     private Vector3 mousePosition;
 
     void Start()
     {
-        
+        CallStart();
     }
 
     void Update()
     {
+        CallUpdate();
         RotateArm();
     }
 
@@ -29,7 +32,7 @@ public class Player : Characters
     {
         direction = new Vector2(Input.GetAxis("Horizontal"),
                                 Input.GetAxis("Vertical"));
-        Translate(direction);
+        this.body.AddForce(direction * characterStats.speed);
     }
 
     private void RotateArm()

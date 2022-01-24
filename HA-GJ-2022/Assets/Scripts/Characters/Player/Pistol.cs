@@ -5,7 +5,9 @@ using UnityEngine;
 public class Pistol : MonoBehaviour
 {
     [SerializeField] private float fire_CD;
+    [SerializeField] private float projectilesSpeed;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private Characters owner;
     private float fire_TIMER;
 
     private void Start()
@@ -27,7 +29,8 @@ public class Pistol : MonoBehaviour
         if (fire_TIMER > 0)
             return;
 
-        PoolManager.Instance.SpawnFromPool(PoolManager.tags.Laser, firePoint.position, firePoint.rotation);
+        GameObject laser = PoolManager.Instance.SpawnFromPool(PoolManager.tags.Laser, firePoint.position, firePoint.rotation);
+        laser.GetComponent<Lasers>().Set(projectilesSpeed, owner.GetStats().damages);
         fire_TIMER = fire_CD;
     }
 }

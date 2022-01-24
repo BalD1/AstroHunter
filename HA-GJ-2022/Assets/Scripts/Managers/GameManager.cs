@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private GameObject player;
 
     #region Game State
 
@@ -71,5 +72,10 @@ public class GameManager : MonoBehaviour
     public Camera getMainCamera()
     {
         return mainCamera;
+    }
+
+    public GameObject getPlayerRef()
+    {
+        return player;
     }
 }
