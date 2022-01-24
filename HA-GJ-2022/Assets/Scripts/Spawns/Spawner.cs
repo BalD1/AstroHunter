@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
 
     private void NextWave()
     {
-        waves[wavesIndex].enabled = true;
+        waves[wavesIndex].gameObject.SetActive(true);
         wavesIndex++;
     }
 }

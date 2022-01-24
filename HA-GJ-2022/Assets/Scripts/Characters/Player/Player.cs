@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class Player : Characters
 {
+    [Header("Arm")]
     [SerializeField] private GameObject arm;
     [SerializeField] private SpriteRenderer armSprite;
+    [Space]
     [SerializeField] private Vector2 rightArmPosition;
+    [SerializeField] private Vector2 rightArmSpritePosition;
     [SerializeField] private Vector2 leftArmPosition;
+    [SerializeField] private Vector2 leftArmSpritePosition;
+
+    [Header("Misc")]
     [SerializeField] private GameObject weapon;
     [SerializeField] private SpriteRenderer sprite;
 
@@ -67,6 +73,7 @@ public class Player : Characters
         sprite.flipX = !faceRight;
         armSprite.flipY = !faceRight;
         //armSprite.sortingOrder = faceRight ? armBaseLayer : armBaseLayer - 2;
-        arm.transform.position = faceRight ? rightArmPosition : leftArmPosition;
+        arm.transform.localPosition = faceRight ? rightArmPosition : leftArmPosition;
+        armSprite.transform.localPosition = faceRight ? rightArmSpritePosition : leftArmSpritePosition;
     }
 }

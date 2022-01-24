@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         GameState = GameStates.InGame;
+        IsInWave = false;
     }
 
     private bool isInWave;

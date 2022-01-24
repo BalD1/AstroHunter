@@ -24,6 +24,7 @@ public class Wave : MonoBehaviour
         {
             Instantiate(sp.enemy, sp.point.transform.position, Quaternion.identity);
         }
+        this.gameObject.SetActive(false);
     }
 
 }
