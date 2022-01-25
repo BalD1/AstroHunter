@@ -7,7 +7,13 @@ public class Enemies : Characters
     [SerializeField] protected SpriteRenderer sprite;
     [SerializeField] private float waitBeforeMovements_CD = 1;
     [SerializeField] private bool useInCounter = true;
+    [SerializeField] private Material hitMaterial;
+    private Material baseMaterial;
     private float waitBeforeMovements_TIMER;
+
+    [SerializeField] private float blink_CD = 0.3f;
+    private float blink_TIMER;
+    private bool blink = false;
 
     protected GameObject playerRef;
     protected Vector2 direction;
@@ -15,13 +21,25 @@ public class Enemies : Characters
     protected override void Start()
     {
         base.Start();
+        baseMaterial = this.sprite.material;
         playerRef = GameManager.Instance.getPlayerRef();
+        if (CanUseCounter())
+            GameManager.Instance.EnemiesInWave++;
     }
 
     protected override void Update()
     {
         if (waitBeforeMovements_TIMER > 0)
             waitBeforeMovements_TIMER -= Time.deltaTime;
+
+        if (blink_TIMER > 0)
+            blink_TIMER -= Time.deltaTime;
+        else if (blink && blink_TIMER <= 0)
+        {
+            blink = false;
+            this.sprite.material = baseMaterial;
+        }
+
 
         base.Update();
     }
@@ -43,6 +61,9 @@ public class Enemies : Characters
     public override void TakeDamages(int amount)
     {
         base.TakeDamages(amount);
+        this.sprite.material = hitMaterial;
+        blink_TIMER = blink_CD;
+        blink = true;
     }
 
     protected override void Death()

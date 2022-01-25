@@ -30,7 +30,6 @@ public class Wave : MonoBehaviour
     private void OnEnable()
     {
         GameManager.Instance.IsInWave = true;
-        int count = 0;
         foreach(SpawnPointData sp in spawnsPoints)
         {
             Vector2 spawnPos = sp.point.position;
@@ -38,10 +37,7 @@ public class Wave : MonoBehaviour
                 spawnPos = spawnPositions[Random.Range(0, spawnPositions.Count - 1)].position;
 
             Enemies e = Instantiate(sp.enemy, spawnPos, Quaternion.identity).GetComponent<Enemies>();
-            if (e.CanUseCounter())
-                count++;
         }
-        GameManager.Instance.EnemiesInWave += count;
         this.gameObject.SetActive(false);
     }
 

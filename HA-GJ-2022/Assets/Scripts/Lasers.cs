@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Lasers : MonoBehaviour
 {
+    [SerializeField] private TrailRenderer trail;
     private float speed;
     private int damages;
 
@@ -36,5 +37,10 @@ public class Lasers : MonoBehaviour
             e.TakeDamages(damages);
             this.gameObject.SetActive(false);
         }
+    }
+
+    private void OnDisable()
+    {
+        trail.Clear();
     }
 }

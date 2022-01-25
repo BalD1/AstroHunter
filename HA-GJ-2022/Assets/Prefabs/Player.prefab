@@ -266,6 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterInfosScriptable: {fileID: 11400000, guid: 1da38e1633cb0e24882024bc5e426c63, type: 2}
   body: {fileID: 8387411987796522354}
+  hpBar: {fileID: 0}
   arm: {fileID: 8387411988478533342}
   armSprite: {fileID: 8387411987317566676}
   rightArmPosition: {x: -0.47, y: -0.64}
@@ -274,6 +275,7 @@ MonoBehaviour:
   leftArmSpritePosition: {x: 1.273, y: -0.159}
   weapon: {fileID: 8387411987273156497}
   sprite: {fileID: 8387411988629663012}
+  hurtPortrait_CD: 0.5
 --- !u!50 &8387411987796522354
 Rigidbody2D:
   serializedVersion: 4

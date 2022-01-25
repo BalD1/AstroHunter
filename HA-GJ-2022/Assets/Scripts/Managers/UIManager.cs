@@ -9,6 +9,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI enemiesCounter;
     [SerializeField] private GameObject nextWaveText;
 
+    [SerializeField] private Image portrait;
+    [SerializeField] private Sprite playerNormal;
+    [SerializeField] private Sprite playerHurt;
+
     private static UIManager instance;
     public static UIManager Instance
     {
@@ -70,6 +74,14 @@ public class UIManager : MonoBehaviour
         nextWaveText.SetActive(!isInWave);
 
         enemiesCounter.enabled = isInWave;
+    }
+
+    public void SetPlayerPortrait(bool hurt)
+    {
+        if (hurt)
+            portrait.sprite = playerHurt;
+        else
+            portrait.sprite = playerNormal;
     }
 
 }

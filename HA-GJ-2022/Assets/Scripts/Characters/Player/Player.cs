@@ -16,6 +16,8 @@ public class Player : Characters
     [Header("Misc")]
     [SerializeField] private GameObject weapon;
     [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private float hurtPortrait_CD;
+    private float hurtPortrait_TIMER;
 
     private int armBaseLayer;
 
@@ -36,6 +38,11 @@ public class Player : Characters
 
         if (GameManager.Instance.GameState == GameManager.GameStates.InGame)
             RotateArm();
+
+        if (hurtPortrait_TIMER > 0)
+            hurtPortrait_TIMER -= Time.deltaTime;
+        else
+            UIManager.Instance.SetPlayerPortrait(false);
     }
 
     private void FixedUpdate()
@@ -82,5 +89,7 @@ public class Player : Characters
         base.TakeDamages(amount);
 
         UIManager.Instance.FillBar(ref hpBar, characterStats.currentHP, characterStats.maxHP);
+        UIManager.Instance.SetPlayerPortrait(true);
+        hurtPortrait_TIMER = hurtPortrait_CD;
     }
 }

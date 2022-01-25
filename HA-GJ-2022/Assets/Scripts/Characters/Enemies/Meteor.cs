@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Meteor : Enemies
 {
+
+    [SerializeField] private float lifeTime;
+
     protected override void Start()
     {
         base.Start();
@@ -13,6 +16,9 @@ public class Meteor : Enemies
     protected override void Update()
     {
         base.Update();
+        lifeTime -= Time.deltaTime;
+        if (lifeTime <= 0)
+            Death();
     }
 
     private void SetDirection()
