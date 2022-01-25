@@ -17,6 +17,7 @@ public class Player : Characters
     [SerializeField] private GameObject weapon;
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private float hurtPortrait_CD;
+
     private float hurtPortrait_TIMER;
 
     private int armBaseLayer;
@@ -84,6 +85,8 @@ public class Player : Characters
         //armSprite.sortingOrder = faceRight ? armBaseLayer : armBaseLayer - 2;
         arm.transform.localPosition = faceRight ? rightArmPosition : leftArmPosition;
         armSprite.transform.localPosition = faceRight ? rightArmSpritePosition : leftArmSpritePosition;
+
+        weapon.GetComponent<Pistol>().Flip(faceRight);
     }
 
     public override void TakeDamages(int amount)
