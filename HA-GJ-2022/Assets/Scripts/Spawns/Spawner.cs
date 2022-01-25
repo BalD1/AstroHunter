@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject wavesContainer;
+    [SerializeField] private GameObject spawnPositionsContainer;
     private bool firstWaveSpawned = false;
     private List<Wave> waves;
     private int wavesIndex = 0;
@@ -14,9 +14,14 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         waves = new List<Wave>();
-        foreach(Transform child in wavesContainer.transform)
+        foreach (Transform child in wavesContainer.transform)
         {
-            waves.Add(child.GetComponent<Wave>());
+            Wave w = child.GetComponent<Wave>();
+            foreach(Transform spawnPosChild in spawnPositionsContainer.transform)
+            {
+                w.spawnPositions.Add(spawnPosChild);
+            }
+            waves.Add(w);
         }
         nextWave_TIMER = 1;
     }
@@ -49,10 +54,12 @@ public class Spawner : MonoBehaviour
 
     private void NextWave()
     {
+        //Debug.Log("Spawning " + waves[wavesIndex].gameObject.name);
         nextWave_TIMER = waves[wavesIndex].GetWaveCooldown();
         waves[wavesIndex].gameObject.SetActive(true);
         wavesIndex++;
         if (wavesIndex >= waves.Count)
-            GameManager.Instance.GameState = GameManager.GameStates.Win;
+            //GameManager.Instance.GameState = GameManager.GameStates.Win;
+            wavesIndex = 0;
     }
 }

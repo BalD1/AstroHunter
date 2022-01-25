@@ -529,7 +529,7 @@ Transform:
   - {fileID: 1117338530}
   - {fileID: 1086440096}
   - {fileID: 1651153672}
-  - {fileID: 1563370344}
+  - {fileID: 1009841564}
   m_Father: {fileID: 2041941043}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1474,6 +1474,92 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1009841563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1009841564}
+  - component: {fileID: 1009841565}
+  m_Layer: 0
+  m_Name: Eh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1009841564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009841563}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 325673049}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1009841565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009841563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489d5048b5bb55944914c7f55bfc469d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnsPoints:
+  - enemyName: Snake
+    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 0
+    point: {fileID: 1373316914}
+  - enemyName: Snake
+    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 0
+    point: {fileID: 1587365189}
+  - enemyName: Snake
+    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 0
+    point: {fileID: 916066809}
+  - enemyName: Snake
+    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 0
+    point: {fileID: 851168880}
+  - enemyName: Snake
+    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 0
+    point: {fileID: 1754002776}
+  - enemyName: Meteor
+    enemy: {fileID: 4799002088890249455, guid: 35e74b8b3de15ad478d80d291e043505, type: 3}
+    randomSpawn: 0
+    point: {fileID: 1691910624}
+  - enemyName: Meteor
+    enemy: {fileID: 4799002088890249455, guid: 35e74b8b3de15ad478d80d291e043505, type: 3}
+    randomSpawn: 0
+    point: {fileID: 931489799}
+  - enemyName: Meteor
+    enemy: {fileID: 4799002088890249455, guid: 35e74b8b3de15ad478d80d291e043505, type: 3}
+    randomSpawn: 0
+    point: {fileID: 931489799}
+  - enemyName: Snake
+    enemy: {fileID: 4799002088890249455, guid: 35e74b8b3de15ad478d80d291e043505, type: 3}
+    randomSpawn: 0
+    point: {fileID: 931489799}
+  - enemyName: Meteor
+    enemy: {fileID: 4799002088890249455, guid: 35e74b8b3de15ad478d80d291e043505, type: 3}
+    randomSpawn: 0
+    point: {fileID: 931489799}
+  spawnPositions: []
+  wave_CD: 7
 --- !u!1 &1020646763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,16 +1669,21 @@ MonoBehaviour:
   spawnsPoints:
   - enemyName: Meteor
     enemy: {fileID: 4799002088890249455, guid: 35e74b8b3de15ad478d80d291e043505, type: 3}
+    randomSpawn: 0
     point: {fileID: 916066809}
   - enemyName: Meteor
     enemy: {fileID: 4799002088890249455, guid: 35e74b8b3de15ad478d80d291e043505, type: 3}
+    randomSpawn: 0
     point: {fileID: 1987041913}
   - enemyName: Meteor
     enemy: {fileID: 4799002088890249455, guid: 35e74b8b3de15ad478d80d291e043505, type: 3}
+    randomSpawn: 0
     point: {fileID: 1587365189}
   - enemyName: Snake
     enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 0
     point: {fileID: 1264994695}
+  spawnPositions: []
   wave_CD: 7
 --- !u!1 &1093970937 stripped
 GameObject:
@@ -1846,19 +1937,21 @@ MonoBehaviour:
   spawnsPoints:
   - enemyName: Snake
     enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 0
     point: {fileID: 1264994695}
   - enemyName: Snake
     enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 0
     point: {fileID: 1691910624}
   - enemyName: Snake
     enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 0
     point: {fileID: 1754002776}
   - enemyName: Snake
     enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 0
     point: {fileID: 1987041913}
-  - enemyName: Snake
-    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
-    point: {fileID: 916066809}
+  spawnPositions: []
   wave_CD: 7
 --- !u!1 &1128729517
 GameObject:
@@ -2549,51 +2642,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563241584}
   m_CullTransparentMesh: 0
---- !u!1 &1563370343
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1563370344}
-  - component: {fileID: 1563370345}
-  m_Layer: 0
-  m_Name: GameObject (4)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1563370344
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1563370343}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 325673049}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1563370345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1563370343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489d5048b5bb55944914c7f55bfc469d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnsPoints: []
-  wave_CD: 1
 --- !u!1 &1581938279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2700,25 +2748,33 @@ MonoBehaviour:
   spawnsPoints:
   - enemyName: Snake
     enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 0
     point: {fileID: 1373316914}
   - enemyName: Snake
     enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 0
     point: {fileID: 1587365189}
   - enemyName: Snake
     enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 0
     point: {fileID: 916066809}
   - enemyName: Snake
     enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 0
     point: {fileID: 851168880}
   - enemyName: Snake
     enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 0
     point: {fileID: 1754002776}
   - enemyName: Meteor
     enemy: {fileID: 4799002088890249455, guid: 35e74b8b3de15ad478d80d291e043505, type: 3}
+    randomSpawn: 0
     point: {fileID: 1691910624}
   - enemyName: Meteor
     enemy: {fileID: 4799002088890249455, guid: 35e74b8b3de15ad478d80d291e043505, type: 3}
+    randomSpawn: 0
     point: {fileID: 931489799}
+  spawnPositions: []
   wave_CD: 10
 --- !u!1 &1662204080
 GameObject:
@@ -2960,10 +3016,13 @@ MonoBehaviour:
   spawnsPoints:
   - enemyName: Snake
     enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 1
     point: {fileID: 1373316914}
   - enemyName: Snake
     enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 1
     point: {fileID: 1987041913}
+  spawnPositions: []
   wave_CD: 10
 --- !u!1 &1739295818
 GameObject:
@@ -3434,6 +3493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wavesContainer: {fileID: 325673048}
+  spawnPositionsContainer: {fileID: 67130366}
 --- !u!1 &2104660353
 GameObject:
   m_ObjectHideFlags: 0
