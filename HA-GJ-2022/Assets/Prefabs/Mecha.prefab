@@ -55,6 +55,11 @@ MonoBehaviour:
   useInCounter: 1
   hitMaterial: {fileID: 2100000, guid: f30e5d13a953f964e91b114a6e21a880, type: 2}
   blink_CD: 0.3
+  animator: {fileID: 4878028932118297126}
+  minDistanceForDash: 7
+  dash_DURATION: 0.4
+  attack_CD: 1
+  dashSpeed: 40
 --- !u!50 &4878028932118297145
 Rigidbody2D:
   serializedVersion: 4
@@ -92,10 +97,10 @@ BoxCollider2D:
   m_Offset: {x: -0.058793366, y: 0.047034502}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.69, y: 4.3}
+    newSize: {x: 4.69, y: 4.3}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
