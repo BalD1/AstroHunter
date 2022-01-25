@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject endgameMenu;
     [SerializeField] private TextMeshProUGUI endgameTitle;
+    [SerializeField] private GameObject shopMenu;
     [SerializeField] private GameObject nextWaveText;
     [SerializeField] private GameObject waveUI;
 
@@ -106,7 +107,6 @@ public class UIManager : MonoBehaviour
 
     public void OnButtonPress(string button)
     {
-        button.ToUpper();
         switch(button)
         {
             case "PLAY":
@@ -128,7 +128,29 @@ public class UIManager : MonoBehaviour
                 GameManager.Instance.GameState = GameManager.GameStates.MainMenu;
                 break;
 
+            case "selectskin_base":
+                GameManager.Instance.getPlayerRef().GetComponent<Player>().ChangeSkin(Player.Skins.Base);
+                break;
+
+            case "selectskin_amogus":
+                GameManager.Instance.getPlayerRef().GetComponent<Player>().ChangeSkin(Player.Skins.Amogus);
+                break;
+
+            case "selectskin_fanta":
+                GameManager.Instance.getPlayerRef().GetComponent<Player>().ChangeSkin(Player.Skins.Fanta);
+                break;
+
+            case "selectskin_antoine":
+                GameManager.Instance.getPlayerRef().GetComponent<Player>().ChangeSkin(Player.Skins.Antoine);
+                break;
+
+            case "selectskin_doge":
+                GameManager.Instance.getPlayerRef().GetComponent<Player>().ChangeSkin(Player.Skins.Doge);
+                break;
+
             case "SHOP":
+                shopMenu.SetActive(!shopMenu.activeSelf);
+                mainMenu.SetActive(!mainMenu.activeSelf);
                 break;
 
             case "EXIT":

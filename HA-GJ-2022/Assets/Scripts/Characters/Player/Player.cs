@@ -17,6 +17,17 @@ public class Player : Characters
     [SerializeField] private GameObject weapon;
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private float hurtPortrait_CD;
+    [SerializeField] private Animator animator;
+
+    public enum Skins
+    {
+        Base,
+        Amogus,
+        Fanta,
+        Antoine,
+        Doge,
+    }
+    private Skins currentSkin;
 
     private float hurtPortrait_TIMER;
 
@@ -33,6 +44,7 @@ public class Player : Characters
         armBaseLayer = armSprite.sortingOrder;
         GameManager.Instance.ev_ReloadEvent.AddListener(PlayerReload);
         this.hpBar = UIManager.Instance.GetPlayerHPBar().gameObject;
+        ChangeSkin(Skins.Base);
     }
 
     protected override void Update()
@@ -119,5 +131,29 @@ public class Player : Characters
     public void UpgradeWeapon(int wave)
     {
         weapon.GetComponent<Pistol>().UpgradeWeapon(wave);
+    }
+
+    public void ChangeSkin(Skins _skin)
+    {
+        currentSkin = _skin;
+        animator.SetBool("base", false);
+        animator.SetBool("antoine", false);
+
+        switch (currentSkin)
+        {
+            case Skins.Base:
+        animator.SetBool("base", true);
+                break;
+
+            case Skins.Fanta:
+                break;
+
+            case Skins.Antoine:
+                animator.SetBool("antoine", true);
+                break;
+
+            case Skins.Doge:
+                break;
+        }
     }
 }

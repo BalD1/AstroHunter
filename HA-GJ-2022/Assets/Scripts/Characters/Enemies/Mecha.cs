@@ -83,7 +83,6 @@ public class Mecha : Enemies
 
     private void StopDash()
     {
-        Debug.Log("stop");
         dashFlag = false;
         isDashing = false;
         this.characterStats.speed = baseSpeed;

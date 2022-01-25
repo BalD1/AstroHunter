@@ -37,30 +37,24 @@ public class GameManager : MonoBehaviour
             {
                 case GameStates.MainMenu:
                     ev_ReloadEvent.Invoke();
-                    player.SetActive(false);
                     break;
 
                 case GameStates.InGame:
                     Time.timeScale = 1;
                     if (GS == GameStates.Win || GS == GameStates.GameOver)
                         ev_ReloadEvent.Invoke();
-
-                    player.SetActive(true);
                     break;
 
                 case GameStates.Pause: 
                     Time.timeScale = 0;
-                    player.SetActive(false);
                     break;
 
                 case GameStates.Win:
                     Time.timeScale = 0;
-                    player.SetActive(false);
                     break;
 
                 case GameStates.GameOver:
                     Time.timeScale = 0;
-                    player.SetActive(false);
                     break;
 
                 default:

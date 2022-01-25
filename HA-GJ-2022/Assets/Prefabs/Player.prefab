@@ -4908,7 +4908,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8387411987796522356}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &385552973
 BoxCollider2D:
@@ -10082,7 +10082,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8387411988629663013}
-  - {fileID: 8387411988478533341}
   - {fileID: 385552972}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -10111,6 +10110,7 @@ MonoBehaviour:
   weapon: {fileID: 8387411987273156497}
   sprite: {fileID: 8387411988629663012}
   hurtPortrait_CD: 0.5
+  animator: {fileID: 0}
 --- !u!50 &8387411987796522354
 Rigidbody2D:
   serializedVersion: 4
@@ -10155,14 +10155,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8387411988478533342}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.47, y: -0.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8387411987273156496}
   - {fileID: 8387411987317566677}
-  m_Father: {fileID: 8387411987796522356}
-  m_RootOrder: 1
+  m_Father: {fileID: 8387411988629663013}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8387411988629663014
 GameObject:
@@ -10193,7 +10193,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 8387411988478533341}
   m_Father: {fileID: 8387411987796522356}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
