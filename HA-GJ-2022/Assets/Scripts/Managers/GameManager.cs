@@ -37,12 +37,14 @@ public class GameManager : MonoBehaviour
             {
                 case GameStates.MainMenu:
                     ev_ReloadEvent.Invoke();
+                    player.GetComponent<Player>().Render(false);
                     break;
 
                 case GameStates.InGame:
                     Time.timeScale = 1;
                     if (GS == GameStates.Win || GS == GameStates.GameOver)
                         ev_ReloadEvent.Invoke();
+                    player.GetComponent<Player>().Render(true);
                     break;
 
                 case GameStates.Pause: 

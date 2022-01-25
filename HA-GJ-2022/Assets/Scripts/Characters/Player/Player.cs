@@ -133,6 +133,12 @@ public class Player : Characters
         weapon.GetComponent<Pistol>().UpgradeWeapon(wave);
     }
 
+    public void Render(bool r)
+    {
+        sprite.enabled = r;
+        armSprite.enabled = r;
+    }
+
     public void ChangeSkin(Skins _skin)
     {
         currentSkin = _skin;
