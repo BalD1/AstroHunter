@@ -89,10 +89,6 @@ public class GameManager : MonoBehaviour
         set
         {
             enemiesInWave = value;
-            if (value == 0)
-            {
-                IsInWave = false;
-            }
             UIManager.Instance.UpdateEnemiesCounter(value);
         }
     }

@@ -12,6 +12,9 @@ public class Wave : MonoBehaviour
         public Transform point;
     }
     [SerializeField] private List<SpawnPointData> spawnsPoints;
+
+    [SerializeField] private float wave_CD = 1;
+
     public List<SpawnPointData> getData()
     {
         return this.spawnsPoints;
@@ -27,8 +30,10 @@ public class Wave : MonoBehaviour
             if (e.CanUseCounter())
                 count++;
         }
-        GameManager.Instance.EnemiesInWave = count;
+        GameManager.Instance.EnemiesInWave += count;
         this.gameObject.SetActive(false);
     }
+
+    public float GetWaveCooldown() { return this.wave_CD; }
 
 }

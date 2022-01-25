@@ -62,7 +62,6 @@ public class UIManager : MonoBehaviour
 
     public void UpdateEnemiesCounter(int count)
     {
-        Debug.Log(count);
         enemiesCounter.text = "Enemies left : \n" + count;
     }
 
