@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private GameObject player;
 
+    public bool isInLastWave = false;
+
     public UnityEvent ev_ReloadEvent;
 
     #region Game State
@@ -127,6 +129,9 @@ public class GameManager : MonoBehaviour
         {
             enemiesInWave = value;
             UIManager.Instance.UpdateEnemiesCounter(value);
+
+            if (enemiesInWave <= 0 && isInLastWave)
+                GameState = GameStates.Win;
         }
     }
     private int enemiesInWave = 0;
@@ -143,6 +148,6 @@ public class GameManager : MonoBehaviour
 
     public void Reload()
     {
-
+        isInLastWave = false;
     }
 }

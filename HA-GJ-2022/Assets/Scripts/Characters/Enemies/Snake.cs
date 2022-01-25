@@ -11,10 +11,13 @@ public class Snake : Enemies
 
     protected override void Update()
     {
-        base.Update();
+        if (GameManager.Instance.GameState == GameManager.GameStates.InGame)
+        {
+            base.Update();
 
-        direction = playerRef.transform.position - this.transform.position;
-        direction.Normalize();
+            direction = playerRef.transform.position - this.transform.position;
+            direction.Normalize();
+        }
     }
 
     protected override void Translate(Vector2 direction)

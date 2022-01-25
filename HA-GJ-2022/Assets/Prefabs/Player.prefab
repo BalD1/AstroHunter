@@ -5002,7 +5002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fire_CD: 0.2
-  projectilesSpeed: 15
+  projectilesSpeed: 25
   firePoint: {fileID: 8387411987200296898}
   owner: {fileID: 8387411987796522355}
   shootParticles: {fileID: 599130015469814648}

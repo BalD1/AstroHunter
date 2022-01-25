@@ -60,8 +60,7 @@ public class Spawner : MonoBehaviour
         waves[wavesIndex].gameObject.SetActive(true);
         wavesIndex++;
         if (wavesIndex >= waves.Count)
-            //GameManager.Instance.GameState = GameManager.GameStates.Win;
-            wavesIndex = 0;
+            GameManager.Instance.isInLastWave = true;
     }
 
     private void SpawnerReload()

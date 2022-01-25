@@ -45,7 +45,7 @@ public class Lasers : MonoBehaviour
 
             hitParticles.gameObject.SetActive(true);
             hitParticles.transform.parent = null;
-            hitParticles.transform.position = e.transform.position;
+            hitParticles.transform.position = this.transform.position;
             hitParticles.transform.localScale = Vector3.one;
             hitParticles.Play();
             hitParticles.GetComponent<DelayedDisable>().enabled = true;
