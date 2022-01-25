@@ -23,8 +23,9 @@ public class Wave : MonoBehaviour
         int count = 0;
         foreach(SpawnPointData sp in spawnsPoints)
         {
-            Instantiate(sp.enemy, sp.point.transform.position, Quaternion.identity);
-            count++;
+            Enemies e = Instantiate(sp.enemy, sp.point.transform.position, Quaternion.identity).GetComponent<Enemies>();
+            if (e.CanUseCounter())
+                count++;
         }
         GameManager.Instance.EnemiesInWave = count;
         this.gameObject.SetActive(false);

@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI enemiesCounter;
+
     private static UIManager instance;
     public static UIManager Instance
     {
@@ -54,6 +57,12 @@ public class UIManager : MonoBehaviour
             return;
         }
         img.fillAmount = currentAmount / maxAmount;
+    }
+
+    public void UpdateEnemiesCounter(int count)
+    {
+        Debug.Log(count);
+        enemiesCounter.text = "Enemies left : \n" + count;
     }
 
 }

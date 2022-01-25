@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2229983947876068662}
-  - component: {fileID: 2229983947876068661}
+  - component: {fileID: 5518919449544114250}
   - component: {fileID: 2229983947876068663}
   - component: {fileID: 2009522513}
   - component: {fileID: 6130411665485706832}
@@ -35,7 +35,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2229983947876068661
+--- !u!114 &5518919449544114250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,14 +44,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2229983947876068660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf9a18a31327c349b5e2e5943cfc7a3, type: 3}
+  m_Script: {fileID: 11500000, guid: ffd15901608f1f54cbab0671d64d0a9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterInfosScriptable: {fileID: 11400000, guid: 2816e4da0579cae45b7e77e1894e3287, type: 2}
   body: {fileID: 2229983947876068663}
   hpBar: {fileID: 0}
   sprite: {fileID: 2229983948085058065}
-  waitBeforeMovements_CD: 2
+  waitBeforeMovements_CD: 1
+  useInCounter: 1
 --- !u!50 &2229983947876068663
 Rigidbody2D:
   serializedVersion: 4

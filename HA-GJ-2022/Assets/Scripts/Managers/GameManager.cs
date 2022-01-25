@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
             {
                 IsInWave = false;
             }
+            UIManager.Instance.UpdateEnemiesCounter(value);
         }
     }
     private int enemiesInWave = 0;
@@ -82,7 +83,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         GameState = GameStates.InGame;
-        IsInWave = false;
+        EnemiesInWave = 0;
     }
 
     private bool isInWave;

@@ -24,15 +24,15 @@ public class Player : Characters
     private Vector2 selfPosByCam;
     private Vector3 mousePosition;
 
-    void Start()
+    protected override void Start()
     {
-        CallStart();
+        base.Start();
         armBaseLayer = armSprite.sortingOrder;
     }
 
-    void Update()
+    protected override void Update()
     {
-        CallUpdate();
+        base.Update();
 
         if (GameManager.Instance.GameState == GameManager.GameStates.InGame)
             RotateArm();

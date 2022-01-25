@@ -4,30 +4,28 @@ using UnityEngine;
 
 public class Enemies : Characters
 {
-    [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] protected SpriteRenderer sprite;
     [SerializeField] private float waitBeforeMovements_CD = 1;
+    [SerializeField] private bool useInCounter = true;
     private float waitBeforeMovements_TIMER;
 
-    private GameObject playerRef;
-    private Vector2 direction;
+    protected GameObject playerRef;
+    protected Vector2 direction;
 
-    private void Start()
+    protected override void Start()
     {
-        CallStart();
+        base.Start();
         playerRef = GameManager.Instance.getPlayerRef();
     }
 
-    private void Update()
+    protected override void Update()
     {
         if (waitBeforeMovements_TIMER > 0)
             waitBeforeMovements_TIMER -= Time.deltaTime;
 
-        CallUpdate();
-        direction = playerRef.transform.position - this.transform.position;
-        direction.Normalize();
+        base.Update();
     }
-
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         Translate(direction);
     }
@@ -42,20 +40,6 @@ public class Enemies : Characters
         }
     }
 
-    protected override void Translate(Vector2 direction)
-    {
-        if (CanMove())
-            base.Translate(direction);
-        else
-            this.body.velocity *= 0.97f;
-
-        float angle = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
-
-        sprite.flipY = !(angle > -90f && angle < 90);
-
-        body.rotation = angle;
-    }
-
     public override void TakeDamages(int amount)
     {
         base.TakeDamages(amount);
@@ -63,9 +47,12 @@ public class Enemies : Characters
 
     protected override void Death()
     {
-        GameManager.Instance.EnemiesInWave--;
+        if (CanUseCounter())
+            GameManager.Instance.EnemiesInWave--;
+
         Destroy(this.gameObject);
     }
 
     public bool CanMove() { return waitBeforeMovements_TIMER <= 0; }
+    public bool CanUseCounter() { return useInCounter; }
 }

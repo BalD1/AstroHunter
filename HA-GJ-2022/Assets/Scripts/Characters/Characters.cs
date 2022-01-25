@@ -11,12 +11,12 @@ public class Characters : MonoBehaviour
     protected SCR_characters.stats characterStats;
     protected float invincibility_TIMER;
 
-    protected void CallStart()
+    protected virtual void Start()
     {
         characterStats = characterInfosScriptable.CharacterStats;
     }
 
-    protected void CallUpdate()
+    protected virtual void Update()
     {
         if (GameManager.Instance.GameState == GameManager.GameStates.InGame)
         {
@@ -50,6 +50,12 @@ public class Characters : MonoBehaviour
     protected void TranslateTo(Transform target)
     {
         Vector2 direction = target.transform.position - this.transform.position;
+        direction.Normalize();
+        body.MovePosition((Vector2)this.transform.position + (direction * characterStats.speed * Time.deltaTime));
+    }
+    protected void TranslateTo(Vector2 target)
+    {
+        Vector2 direction = target - (Vector2)this.transform.position;
         direction.Normalize();
         body.MovePosition((Vector2)this.transform.position + (direction * characterStats.speed * Time.deltaTime));
     }
