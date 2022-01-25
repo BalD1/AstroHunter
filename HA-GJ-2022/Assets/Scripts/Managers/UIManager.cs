@@ -20,9 +20,16 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject playerHUD;
     [SerializeField] private Image playerHPBar;
     [SerializeField] private Image portrait;
-    [SerializeField] private Sprite playerNormal;
-    [SerializeField] private Sprite playerHurt;
 
+    [System.Serializable]
+    public struct PlayerPortraits
+    {
+        public string name;
+        public Sprite normal;
+        public Sprite hurt;
+    }
+    public List<PlayerPortraits> playerPortraits;
+    public int currentPortraitIndex;
 
     private static UIManager instance;
     public static UIManager Instance
@@ -98,12 +105,21 @@ public class UIManager : MonoBehaviour
         nextWaveText.SetActive(!isInWave);
     }
 
+    public void SetCurrentPortrait(string name)
+    {
+        for(int i = 0; i < playerPortraits.Count; i++)
+        {
+            if (playerPortraits[i].name.Equals(name))
+                currentPortraitIndex = i;
+        }
+    }
+
     public void SetPlayerPortrait(bool hurt)
     {
         if (hurt)
-            portrait.sprite = playerHurt;
+            portrait.sprite = playerPortraits[currentPortraitIndex].hurt;
         else
-            portrait.sprite = playerNormal;
+            portrait.sprite = playerPortraits[currentPortraitIndex].normal;
     }
 
     public void OnButtonPress(string button)

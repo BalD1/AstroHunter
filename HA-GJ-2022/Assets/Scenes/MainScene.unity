@@ -7538,8 +7538,23 @@ MonoBehaviour:
   playerHUD: {fileID: 1739295818}
   playerHPBar: {fileID: 1875638535}
   portrait: {fileID: 1571324551}
-  playerNormal: {fileID: 21300000, guid: 9bee1f160e0d7264199cc419bebbc9de, type: 3}
-  playerHurt: {fileID: 21300000, guid: 397d0a3ca6133ff409cb6d4bc89aab8c, type: 3}
+  playerPortraits:
+  - name: Base
+    normal: {fileID: 21300000, guid: 9bee1f160e0d7264199cc419bebbc9de, type: 3}
+    hurt: {fileID: 21300000, guid: 397d0a3ca6133ff409cb6d4bc89aab8c, type: 3}
+  - name: Amogus
+    normal: {fileID: 21300000, guid: 9f8cc99e73c45ed4aa99e095ffe29521, type: 3}
+    hurt: {fileID: 21300000, guid: 6c90402dd7197f7479f9d43601d77223, type: 3}
+  - name: Fanta
+    normal: {fileID: 21300000, guid: 2d96bb4a8fffec148b3c992068ee4c67, type: 3}
+    hurt: {fileID: 21300000, guid: 72e327e8129604744b6a03ee65ec4c34, type: 3}
+  - name: Antoine
+    normal: {fileID: 21300000, guid: b44f9dbf84014b741b06b6c15da93273, type: 3}
+    hurt: {fileID: 21300000, guid: d9b6b53ee8c62964e888e5991bd057c6, type: 3}
+  - name: Doge
+    normal: {fileID: 21300000, guid: 86c1985c4bc06e546912f5048020719b, type: 3}
+    hurt: {fileID: 21300000, guid: f0feed017f0b96247ab6421668342c26, type: 3}
+  currentPortraitIndex: 0
 --- !u!1 &1350839472
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,7 +15,6 @@ public class Player : Characters
 
     [Header("Misc")]
     [SerializeField] private GameObject weapon;
-    [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private float hurtPortrait_CD;
     [SerializeField] private Animator animator;
 
@@ -142,6 +141,7 @@ public class Player : Characters
 
     public void ChangeSkin(Skins _skin)
     {
+        Time.timeScale = 1;
         currentSkin = _skin;
         animator.SetBool("base", false);
         animator.SetBool("antoine", false);
@@ -153,23 +153,29 @@ public class Player : Characters
         {
             case Skins.Base:
                 animator.SetBool("base", true);
+                UIManager.Instance.SetCurrentPortrait("Base");
                 break;
 
             case Skins.Amogus:
                 animator.SetBool("amogus", true);
+                UIManager.Instance.SetCurrentPortrait("Amogus");
                 break;
 
             case Skins.Fanta:
                 animator.SetBool("fanta", true);
+                UIManager.Instance.SetCurrentPortrait("Fanta");
                 break;
 
             case Skins.Antoine:
                 animator.SetBool("antoine", true);
+                UIManager.Instance.SetCurrentPortrait("Antoine");
                 break;
 
             case Skins.Doge:
                 animator.SetBool("doge", true);
+                UIManager.Instance.SetCurrentPortrait("Doge");
                 break;
         }
+        Time.timeScale = 0;
     }
 }

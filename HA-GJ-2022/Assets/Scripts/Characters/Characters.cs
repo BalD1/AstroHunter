@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class Characters : MonoBehaviour
 {
+    [SerializeField] protected SpriteRenderer sprite;
     [SerializeField] protected SCR_characters characterInfosScriptable;
     [SerializeField] protected Rigidbody2D body;
     [SerializeField] protected GameObject hpBar;
     [SerializeField] protected AudioSource source;
+
+    [SerializeField] protected Material hitMaterial;
+    [SerializeField] protected float blink_CD = 0.3f;
+    protected Material baseMaterial;
+    protected float blink_TIMER;
+    protected bool blink = false;
+
 
     protected SCR_characters.stats characterStats;
     protected float invincibility_TIMER;
 
     protected virtual void Start()
     {
+        baseMaterial = this.sprite.material;
         characterStats = characterInfosScriptable.CharacterStats;
     }
 
@@ -23,6 +32,14 @@ public class Characters : MonoBehaviour
         {
             if (invincibility_TIMER > 0)
                 invincibility_TIMER -= Time.deltaTime;
+
+            if (blink_TIMER > 0)
+                blink_TIMER -= Time.deltaTime;
+            else if (blink && blink_TIMER <= 0)
+            {
+                blink = false;
+                this.sprite.material = baseMaterial;
+            }
         }
     }
 
@@ -36,6 +53,10 @@ public class Characters : MonoBehaviour
             Death();
 
         invincibility_TIMER = characterStats.invincibleTime;
+
+        this.sprite.material = hitMaterial;
+        blink_TIMER = blink_CD;
+        blink = true;
     }
 
     public virtual void Heal(int amount)
