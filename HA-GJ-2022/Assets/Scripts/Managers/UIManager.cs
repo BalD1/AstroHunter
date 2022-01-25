@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject endgameMenu;
     [SerializeField] private TextMeshProUGUI endgameTitle;
     [SerializeField] private GameObject shopMenu;
+    [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject nextWaveText;
     [SerializeField] private GameObject waveUI;
 
@@ -122,6 +123,12 @@ public class UIManager : MonoBehaviour
                 break;
 
             case "OPTIONS":
+                optionsMenu.SetActive(!optionsMenu.activeSelf);
+
+                if (GameManager.Instance.GameState == GameManager.GameStates.MainMenu)
+                    mainMenu.SetActive(!mainMenu.activeSelf);
+                else if (GameManager.Instance.GameState == GameManager.GameStates.Pause)
+                    pauseMenu.SetActive(!pauseMenu.activeSelf);
                 break;
 
             case "MAINMENU":

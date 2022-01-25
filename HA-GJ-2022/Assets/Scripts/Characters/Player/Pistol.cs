@@ -19,6 +19,8 @@ public class Pistol : MonoBehaviour
     [SerializeField] private Vector2 rightPosition;
     [SerializeField] private Vector2 leftPosition;
 
+    [SerializeField] private AudioSource source;
+
     private float fire_TIMER;
 
     private void Start()
@@ -40,6 +42,7 @@ public class Pistol : MonoBehaviour
         if (fire_TIMER > 0)
             return;
 
+        source.PlayOneShot(AudioManager.Instance.GetAudioClip(AudioManager.ClipsTags.Laser));
         shootParticles.Play();
         GameObject laser = PoolManager.Instance.SpawnFromPool(PoolManager.tags.Laser, firePoint.position, firePoint.rotation);
         laser.GetComponent<Lasers>().Set(projectilesSpeed, owner.GetStats().damages, currentColor);
