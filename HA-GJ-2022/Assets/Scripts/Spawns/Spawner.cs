@@ -24,6 +24,7 @@ public class Spawner : MonoBehaviour
             waves.Add(w);
         }
         nextWave_TIMER = 1;
+        GameManager.Instance.ev_ReloadEvent.AddListener(SpawnerReload);
     }
 
     private void Update()
@@ -61,5 +62,11 @@ public class Spawner : MonoBehaviour
         if (wavesIndex >= waves.Count)
             //GameManager.Instance.GameState = GameManager.GameStates.Win;
             wavesIndex = 0;
+    }
+
+    private void SpawnerReload()
+    {
+        wavesIndex = 0;
+        nextWave_TIMER = 1;
     }
 }

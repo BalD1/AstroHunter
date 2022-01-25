@@ -30,6 +30,8 @@ public class Player : Characters
     {
         base.Start();
         armBaseLayer = armSprite.sortingOrder;
+        GameManager.Instance.ev_ReloadEvent.AddListener(PlayerReload);
+        this.hpBar = UIManager.Instance.GetPlayerHPBar().gameObject;
     }
 
     protected override void Update()
@@ -91,5 +93,23 @@ public class Player : Characters
         UIManager.Instance.FillBar(ref hpBar, characterStats.currentHP, characterStats.maxHP);
         UIManager.Instance.SetPlayerPortrait(true);
         hurtPortrait_TIMER = hurtPortrait_CD;
+    }
+
+    public override void Heal(int amount)
+    {
+        base.Heal(amount);
+
+        UIManager.Instance.FillBar(ref hpBar, characterStats.currentHP, characterStats.maxHP);
+    }
+
+    protected override void Death()
+    {
+        base.Death();
+        GameManager.Instance.GameState = GameManager.GameStates.GameOver;
+    }
+
+    public void PlayerReload()
+    {
+        Heal(characterStats.maxHP);
     }
 }

@@ -37,6 +37,11 @@ public class Characters : MonoBehaviour
         invincibility_TIMER = characterStats.invincibleTime;
     }
 
+    public virtual void Heal(int amount)
+    {
+        characterStats.currentHP = Mathf.Clamp(characterStats.currentHP + amount, 0, characterStats.maxHP);
+    }
+
     protected virtual void Death()
     {
 

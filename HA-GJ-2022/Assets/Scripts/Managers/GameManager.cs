@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
     [SerializeField] private GameObject player;
+
+    public UnityEvent ev_ReloadEvent;
 
     #region Game State
 
@@ -29,24 +32,34 @@ public class GameManager : MonoBehaviour
             switch (value)
             {
                 case GameStates.MainMenu:
+                    ev_ReloadEvent.Invoke();
                     break;
 
                 case GameStates.InGame:
+                    Time.timeScale = 1;
+                    if (GS == GameStates.Win || GS == GameStates.GameOver)
+                    {
+                        ev_ReloadEvent.Invoke();
+                    }
                     break;
 
                 case GameStates.Pause: 
+                    Time.timeScale = 1;
                     break;
 
                 case GameStates.Win:
+                    Time.timeScale = 1;
                     break;
 
                 case GameStates.GameOver:
+                    Time.timeScale = 1;
                     break;
 
                 default:
                     Debug.LogError(value + " not found in switch statement.");
                     break;
             }
+            UIManager.Instance.windowManager(value);
             GS = value;
         }
     }
@@ -67,9 +80,29 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        GameState = GameStates.InGame;
+        GameState = GameStates.MainMenu;
         EnemiesInWave = 0;
         IsInWave = false;
+
+        ev_ReloadEvent = new UnityEvent();
+        ev_ReloadEvent.AddListener(Reload);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            switch (GameState)
+            {
+                case GameStates.InGame:
+                    GameState = GameStates.Pause;
+                    break;
+
+                case GameStates.Pause:
+                    GameState = GameStates.InGame;
+                    break;
+            }
+        }
     }
 
     private bool isInWave;
@@ -102,5 +135,10 @@ public class GameManager : MonoBehaviour
     public GameObject getPlayerRef()
     {
         return player;
+    }
+
+    public void Reload()
+    {
+
     }
 }

@@ -25,6 +25,8 @@ public class Enemies : Characters
         playerRef = GameManager.Instance.getPlayerRef();
         if (CanUseCounter())
             GameManager.Instance.EnemiesInWave++;
+
+        GameManager.Instance.ev_ReloadEvent.AddListener(EnemyReload);
     }
 
     protected override void Update()
@@ -76,4 +78,9 @@ public class Enemies : Characters
 
     public bool CanMove() { return waitBeforeMovements_TIMER <= 0; }
     public bool CanUseCounter() { return useInCounter; }
+
+    public void EnemyReload()
+    {
+        Death();
+    }
 }

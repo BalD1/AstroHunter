@@ -8,6 +8,11 @@ public class Lasers : MonoBehaviour
     private float speed;
     private int damages;
 
+    private void Start()
+    {
+        GameManager.Instance.ev_ReloadEvent.AddListener(LaserReload);
+    }
+
     public void Set(float _speed, int _damages)
     {
         speed = _speed;
@@ -42,5 +47,10 @@ public class Lasers : MonoBehaviour
     private void OnDisable()
     {
         trail.Clear();
+    }
+
+    private void LaserReload()
+    {
+        this.gameObject.SetActive(false);
     }
 }

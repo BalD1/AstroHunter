@@ -6,12 +6,22 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("Menus / UI")]
+    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject endgameMenu;
+    [SerializeField] private TextMeshProUGUI endgameTitle;
     [SerializeField] private TextMeshProUGUI enemiesCounter;
     [SerializeField] private GameObject nextWaveText;
+    [SerializeField] private GameObject waveUI;
 
+    [Header("Player related")]
+    [SerializeField] private GameObject playerHUD;
+    [SerializeField] private Image playerHPBar;
     [SerializeField] private Image portrait;
     [SerializeField] private Sprite playerNormal;
     [SerializeField] private Sprite playerHurt;
+
 
     private static UIManager instance;
     public static UIManager Instance
@@ -33,18 +43,36 @@ public class UIManager : MonoBehaviour
         switch (GS)
         {
             case GameManager.GameStates.MainMenu:
+                playerHUD.SetActive(false);
+                mainMenu.SetActive(true);
+                waveUI.SetActive(false);
+                pauseMenu.SetActive(false);
+                endgameMenu.SetActive(false);
                 break;
 
             case GameManager.GameStates.InGame:
+                playerHUD.SetActive(true);
+                mainMenu.SetActive(false);
+                waveUI.SetActive(true);
+                pauseMenu.SetActive(false);
+                endgameMenu.SetActive(false);
                 break;
 
             case GameManager.GameStates.Pause:
+                playerHUD.SetActive(false);
+                waveUI.SetActive(false);
+                pauseMenu.SetActive(true);
+                endgameMenu.SetActive(false);
                 break;
 
             case GameManager.GameStates.Win:
+                endgameMenu.SetActive(true);
+                endgameTitle.SetText("YOU WON !");
                 break;
 
             case GameManager.GameStates.GameOver:
+                endgameTitle.SetText("GAME OVER");
+                endgameMenu.SetActive(true);
                 break;
 
             default:
@@ -83,5 +111,40 @@ public class UIManager : MonoBehaviour
         else
             portrait.sprite = playerNormal;
     }
+
+    public void OnButtonPress(string button)
+    {
+        button.ToUpper();
+        switch(button)
+        {
+            case "PLAY":
+                GameManager.Instance.GameState = GameManager.GameStates.InGame;
+                break;
+
+            case "CONTINUE":
+                GameManager.Instance.GameState = GameManager.GameStates.InGame;
+                break;
+
+            case "PLAYAGAIN":
+                GameManager.Instance.GameState = GameManager.GameStates.InGame;
+                break;
+
+            case "OPTIONS":
+                break;
+
+            case "MAINMENU":
+                GameManager.Instance.GameState = GameManager.GameStates.MainMenu;
+                break;
+
+            case "SHOP":
+                break;
+
+            case "EXIT":
+                Application.Quit();
+                break;
+        }
+    }
+
+    public Image GetPlayerHPBar() { return this.playerHPBar; }
 
 }
