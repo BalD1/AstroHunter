@@ -31,19 +31,22 @@ public class Enemies : Characters
 
     protected override void Update()
     {
-        if (waitBeforeMovements_TIMER > 0)
-            waitBeforeMovements_TIMER -= Time.deltaTime;
-
-        if (blink_TIMER > 0)
-            blink_TIMER -= Time.deltaTime;
-        else if (blink && blink_TIMER <= 0)
+        if (GameManager.Instance.GameState == GameManager.GameStates.InGame)
         {
-            blink = false;
-            this.sprite.material = baseMaterial;
+
+            if (waitBeforeMovements_TIMER > 0)
+                waitBeforeMovements_TIMER -= Time.deltaTime;
+
+            if (blink_TIMER > 0)
+                blink_TIMER -= Time.deltaTime;
+            else if (blink && blink_TIMER <= 0)
+            {
+                blink = false;
+                this.sprite.material = baseMaterial;
+            }
+
+            base.Update();
         }
-
-
-        base.Update();
     }
     protected virtual void FixedUpdate()
     {
@@ -56,7 +59,8 @@ public class Enemies : Characters
         {
             waitBeforeMovements_TIMER = waitBeforeMovements_CD;
             Player p = collision.GetComponentInParent<Player>();
-            p.TakeDamages(characterStats.damages);
+            if (p != null)
+                p.TakeDamages(characterStats.damages);
         }
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Lasers : MonoBehaviour
 {
     [SerializeField] private TrailRenderer trail;
+    [SerializeField] private ParticleSystem hitParticles;
     private float speed;
     private int damages;
 
@@ -41,7 +42,19 @@ public class Lasers : MonoBehaviour
             Enemies e = collision.GetComponent<Enemies>();
             e.TakeDamages(damages);
             this.gameObject.SetActive(false);
+
+            hitParticles.gameObject.SetActive(true);
+            hitParticles.transform.parent = null;
+            hitParticles.transform.position = e.transform.position;
+            hitParticles.transform.localScale = Vector3.one;
+            hitParticles.Play();
+            hitParticles.GetComponent<DelayedDisable>().enabled = true;
         }
+    }
+
+    private void OnEnable()
+    {
+        hitParticles.transform.parent = this.transform;
     }
 
     private void OnDisable()

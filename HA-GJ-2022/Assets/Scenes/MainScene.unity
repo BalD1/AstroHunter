@@ -6383,6 +6383,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8387411987796522355, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
+      propertyPath: hpBar
+      value: 
+      objectReference: {fileID: 1875638533}
     - target: {fileID: 8387411987796522356, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
       propertyPath: m_RootOrder
       value: 19
