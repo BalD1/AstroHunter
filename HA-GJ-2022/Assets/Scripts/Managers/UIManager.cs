@@ -11,7 +11,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject endgameMenu;
     [SerializeField] private TextMeshProUGUI endgameTitle;
-    [SerializeField] private TextMeshProUGUI enemiesCounter;
     [SerializeField] private GameObject nextWaveText;
     [SerializeField] private GameObject waveUI;
 
@@ -92,16 +91,9 @@ public class UIManager : MonoBehaviour
         img.fillAmount = currentAmount / maxAmount;
     }
 
-    public void UpdateEnemiesCounter(int count)
-    {
-        enemiesCounter.text = "Enemies left : \n" + count;
-    }
-
     public void SetWaveStateUI(bool isInWave)
     {
         nextWaveText.SetActive(!isInWave);
-
-        enemiesCounter.enabled = isInWave;
     }
 
     public void SetPlayerPortrait(bool hurt)

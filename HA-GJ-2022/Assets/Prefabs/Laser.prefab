@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trail: {fileID: 4799468717608309129}
   hitParticles: {fileID: 1188062937006096518}
+  sprite: {fileID: 389025172034720278}
 --- !u!212 &389025172034720278
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5130,7 +5131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea876d82aae048d40a9b286ac0307890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 1
+  disable_CD: 1
 --- !u!1 &4092916290199682815
 GameObject:
   m_ObjectHideFlags: 0

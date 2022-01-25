@@ -6,6 +6,7 @@ public class Lasers : MonoBehaviour
 {
     [SerializeField] private TrailRenderer trail;
     [SerializeField] private ParticleSystem hitParticles;
+    [SerializeField] private SpriteRenderer sprite;
     private float speed;
     private int damages;
 
@@ -14,10 +15,11 @@ public class Lasers : MonoBehaviour
         GameManager.Instance.ev_ReloadEvent.AddListener(LaserReload);
     }
 
-    public void Set(float _speed, int _damages)
+    public void Set(float _speed, int _damages, Color _color)
     {
         speed = _speed;
         damages = _damages;
+        this.sprite.color = _color;
     }
 
     private void Update()

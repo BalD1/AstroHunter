@@ -10,6 +10,12 @@ public class Pistol : MonoBehaviour
     [SerializeField] private Characters owner;
     [SerializeField] private ParticleSystem shootParticles;
 
+    [SerializeField] private Gradient effectColor;
+    private Color currentColor;
+
+    [SerializeField] private ParticleSystem upgradeParticles;
+    [SerializeField] private AnimationCurve speedByWave;
+
     [SerializeField] private Vector2 rightPosition;
     [SerializeField] private Vector2 leftPosition;
 
@@ -17,7 +23,7 @@ public class Pistol : MonoBehaviour
 
     private void Start()
     {
-        
+        currentColor = effectColor.Evaluate(0);
     }
 
     private void Update()
@@ -36,12 +42,25 @@ public class Pistol : MonoBehaviour
 
         shootParticles.Play();
         GameObject laser = PoolManager.Instance.SpawnFromPool(PoolManager.tags.Laser, firePoint.position, firePoint.rotation);
-        laser.GetComponent<Lasers>().Set(projectilesSpeed, owner.GetStats().damages);
+        laser.GetComponent<Lasers>().Set(projectilesSpeed, owner.GetStats().damages, currentColor);
         fire_TIMER = fire_CD;
     }
 
     public void Flip(bool right)
     {
         firePoint.transform.localPosition = right ? rightPosition : leftPosition;
+    }
+
+    public void UpgradeWeapon(int wave)
+    {
+        float spd = speedByWave.Evaluate(wave);
+        if (spd < fire_CD)
+        {
+            currentColor = effectColor.Evaluate((float)wave / (float)GameManager.Instance.maxWave);
+            ParticleSystem.MainModule ma = shootParticles.main;
+            ma.startColor = currentColor;
+            upgradeParticles.Play();
+            fire_CD = spd;
+        }
     }
 }

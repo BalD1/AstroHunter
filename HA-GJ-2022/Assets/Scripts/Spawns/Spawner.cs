@@ -23,6 +23,7 @@ public class Spawner : MonoBehaviour
             }
             waves.Add(w);
         }
+        GameManager.Instance.maxWave = waves.Count;
         nextWave_TIMER = 1;
         GameManager.Instance.ev_ReloadEvent.AddListener(SpawnerReload);
     }
@@ -56,11 +57,16 @@ public class Spawner : MonoBehaviour
     private void NextWave()
     {
         //Debug.Log("Spawning " + waves[wavesIndex].gameObject.name);
+        if (wavesIndex >= waves.Count)
+        {
+            GameManager.Instance.isInLastWave = true;
+            return;
+        }
+
         nextWave_TIMER = waves[wavesIndex].GetWaveCooldown();
         waves[wavesIndex].gameObject.SetActive(true);
+        GameManager.Instance.getPlayerRef().GetComponent<Player>().UpgradeWeapon(wavesIndex);
         wavesIndex++;
-        if (wavesIndex >= waves.Count)
-            GameManager.Instance.isInLastWave = true;
     }
 
     private void SpawnerReload()

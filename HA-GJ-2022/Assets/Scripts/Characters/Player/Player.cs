@@ -115,4 +115,9 @@ public class Player : Characters
     {
         Heal(characterStats.maxHP);
     }
+
+    public void UpgradeWeapon(int wave)
+    {
+        weapon.GetComponent<Pistol>().UpgradeWeapon(wave);
+    }
 }

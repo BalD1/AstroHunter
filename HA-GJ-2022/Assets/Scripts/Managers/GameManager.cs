@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject player;
 
     public bool isInLastWave = false;
+    public int maxWave;
 
     public UnityEvent ev_ReloadEvent;
 
@@ -47,17 +48,17 @@ public class GameManager : MonoBehaviour
                     break;
 
                 case GameStates.Pause: 
-                    Time.timeScale = 1;
+                    Time.timeScale = 0;
                     player.SetActive(false);
                     break;
 
                 case GameStates.Win:
-                    Time.timeScale = 1;
+                    Time.timeScale = 0;
                     player.SetActive(false);
                     break;
 
                 case GameStates.GameOver:
-                    Time.timeScale = 1;
+                    Time.timeScale = 0;
                     player.SetActive(false);
                     break;
 
@@ -128,7 +129,6 @@ public class GameManager : MonoBehaviour
         set
         {
             enemiesInWave = value;
-            UIManager.Instance.UpdateEnemiesCounter(value);
 
             if (enemiesInWave <= 0 && isInLastWave)
                 GameState = GameStates.Win;
