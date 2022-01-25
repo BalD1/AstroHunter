@@ -45,6 +45,9 @@ public class Lasers : MonoBehaviour
             e.TakeDamages(damages);
             this.gameObject.SetActive(false);
 
+            ParticleSystem.MainModule ma = hitParticles.main;
+            ma.startColor = sprite.color;
+
             hitParticles.gameObject.SetActive(true);
             hitParticles.transform.parent = null;
             hitParticles.transform.position = this.transform.position;
