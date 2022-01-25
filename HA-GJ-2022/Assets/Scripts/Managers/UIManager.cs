@@ -108,6 +108,7 @@ public class UIManager : MonoBehaviour
 
     public void OnButtonPress(string button)
     {
+        AudioManager.Instance.Play2DSound(AudioManager.ClipsTags.clic);
         switch(button)
         {
             case "PLAY":

@@ -51,14 +51,14 @@ public class AudioManager : MonoBehaviour
         // sounds
 
         clic,
-        Laser,
+        laser,
+        enemyHurt,
+        enemyDeath,
+        playerHurt,
 
         // musics
 
         MainTheme,
-        MainMenu,
-        GameOver,
-        Win,
 
     }
 

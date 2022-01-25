@@ -104,6 +104,7 @@ public class Player : Characters
     public override void TakeDamages(int amount)
     {
         base.TakeDamages(amount);
+        source.PlayOneShot(AudioManager.Instance.GetAudioClip(AudioManager.ClipsTags.playerHurt));
 
         UIManager.Instance.FillBar(ref hpBar, characterStats.currentHP, characterStats.maxHP);
         UIManager.Instance.SetPlayerPortrait(true);

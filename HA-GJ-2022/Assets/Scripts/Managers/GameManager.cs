@@ -92,6 +92,11 @@ public class GameManager : MonoBehaviour
         ev_ReloadEvent.AddListener(Reload);
     }
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayMusic();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

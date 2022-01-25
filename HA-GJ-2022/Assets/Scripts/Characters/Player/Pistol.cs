@@ -42,7 +42,7 @@ public class Pistol : MonoBehaviour
         if (fire_TIMER > 0)
             return;
 
-        source.PlayOneShot(AudioManager.Instance.GetAudioClip(AudioManager.ClipsTags.Laser));
+        source.PlayOneShot(AudioManager.Instance.GetAudioClip(AudioManager.ClipsTags.laser));
         shootParticles.Play();
         GameObject laser = PoolManager.Instance.SpawnFromPool(PoolManager.tags.Laser, firePoint.position, firePoint.rotation);
         laser.GetComponent<Lasers>().Set(projectilesSpeed, owner.GetStats().damages, currentColor);

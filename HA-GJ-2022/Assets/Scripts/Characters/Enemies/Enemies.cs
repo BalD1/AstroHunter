@@ -66,6 +66,7 @@ public class Enemies : Characters
 
     public override void TakeDamages(int amount)
     {
+        source.PlayOneShot(AudioManager.Instance.GetAudioClip(AudioManager.ClipsTags.enemyHurt));
         base.TakeDamages(amount);
         this.sprite.material = hitMaterial;
         blink_TIMER = blink_CD;
@@ -77,6 +78,9 @@ public class Enemies : Characters
         if (CanUseCounter())
             GameManager.Instance.EnemiesInWave--;
 
+        source.transform.parent = null;
+        source.GetComponent<DelayedDestroy>().enabled = true;
+        source.PlayOneShot(AudioManager.Instance.GetAudioClip(AudioManager.ClipsTags.enemyDeath));
         Destroy(this.gameObject);
     }
 

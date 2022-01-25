@@ -7,6 +7,7 @@ public class Characters : MonoBehaviour
     [SerializeField] protected SCR_characters characterInfosScriptable;
     [SerializeField] protected Rigidbody2D body;
     [SerializeField] protected GameObject hpBar;
+    [SerializeField] protected AudioSource source;
 
     protected SCR_characters.stats characterStats;
     protected float invincibility_TIMER;
