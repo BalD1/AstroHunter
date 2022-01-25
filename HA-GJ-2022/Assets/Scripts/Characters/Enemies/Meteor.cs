@@ -6,6 +6,7 @@ public class Meteor : Enemies
 {
 
     [SerializeField] private float lifeTime;
+    [SerializeField] private float timeBeforeLaunch = 1;
 
     protected override void Start()
     {
@@ -15,10 +16,15 @@ public class Meteor : Enemies
 
     protected override void Update()
     {
-        base.Update();
-        lifeTime -= Time.deltaTime;
-        if (lifeTime <= 0)
-            Death();
+        if (timeBeforeLaunch <= 0)
+        {
+            base.Update();
+            lifeTime -= Time.deltaTime;
+            if (lifeTime <= 0)
+                Death();
+        }
+        else
+            timeBeforeLaunch -= Time.deltaTime;
     }
 
     private void SetDirection()

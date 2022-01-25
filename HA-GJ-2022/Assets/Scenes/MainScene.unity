@@ -3497,6 +3497,7 @@ MonoBehaviour:
   mainCamera: {fileID: 535184674}
   player: {fileID: 319460194}
   isInLastWave: 0
+  maxWave: 0
   ev_ReloadEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -6954,30 +6955,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8387411987273156526, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
-      propertyPath: effectColor.key0.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8387411987273156526, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
-      propertyPath: effectColor.key0.g
-      value: 0.2501845
-      objectReference: {fileID: 0}
-    - target: {fileID: 8387411987273156526, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
-      propertyPath: effectColor.key0.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8387411987273156526, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
-      propertyPath: effectColor.key1.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8387411987273156526, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
-      propertyPath: effectColor.key1.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8387411987273156526, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
-      propertyPath: effectColor.key1.r
-      value: 0.5644245
-      objectReference: {fileID: 0}
     - target: {fileID: 8387411987796522355, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
       propertyPath: hpBar
       value: 
