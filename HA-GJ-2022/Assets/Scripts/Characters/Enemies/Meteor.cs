@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Meteor : Enemies
 {
-
+    [SerializeField] private GameObject sign;
     [SerializeField] private float lifeTime;
     [SerializeField] private float timeBeforeLaunch = 1;
 
