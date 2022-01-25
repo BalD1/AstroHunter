@@ -145,14 +145,22 @@ public class Player : Characters
         currentSkin = _skin;
         animator.SetBool("base", false);
         animator.SetBool("antoine", false);
+        animator.SetBool("amogus", false);
+        animator.SetBool("fanta", false);
+        animator.SetBool("doge", false);
 
         switch (currentSkin)
         {
             case Skins.Base:
-        animator.SetBool("base", true);
+                animator.SetBool("base", true);
+                break;
+
+            case Skins.Amogus:
+                animator.SetBool("amogus", true);
                 break;
 
             case Skins.Fanta:
+                animator.SetBool("fanta", true);
                 break;
 
             case Skins.Antoine:
@@ -160,6 +168,7 @@ public class Player : Characters
                 break;
 
             case Skins.Doge:
+                animator.SetBool("doge", true);
                 break;
         }
     }
