@@ -6,12 +6,13 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private Camera signsCamera;
     [SerializeField] private GameObject player;
 
-    public bool isInLastWave = false;
-    public int maxWave;
+    [HideInInspector] public bool isInLastWave = false;
+    [HideInInspector] public int maxWave;
 
-    public UnityEvent ev_ReloadEvent;
+    [HideInInspector] public UnityEvent ev_ReloadEvent;
 
     #region Game State
 
@@ -139,6 +140,10 @@ public class GameManager : MonoBehaviour
     public Camera getMainCamera()
     {
         return mainCamera;
+    }
+    public Camera getSignsCamera()
+    {
+        return signsCamera;
     }
 
     public GameObject getPlayerRef()

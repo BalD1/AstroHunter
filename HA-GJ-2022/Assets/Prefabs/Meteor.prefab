@@ -154,10 +154,11 @@ MonoBehaviour:
   sprite: {fileID: 2132613848}
   waitBeforeMovements_CD: 1
   useInCounter: 0
-  hitMaterial: {fileID: 0}
+  hitMaterial: {fileID: 2100000, guid: f30e5d13a953f964e91b114a6e21a880, type: 2}
   blink_CD: 0
+  sign: {fileID: 270736468600544172, guid: d09ae103ebec2c14eb89e841027964a1, type: 3}
   lifeTime: 5
-  timeBeforeLaunch: 1
+  timeBeforeLaunch: 2
 --- !u!50 &1738727451
 Rigidbody2D:
   serializedVersion: 4

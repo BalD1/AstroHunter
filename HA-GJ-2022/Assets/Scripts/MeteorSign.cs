@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class MeteorSign : MonoBehaviour
 {
-    [HideInInspector] public Vector2 meteorPosition;
+    private Camera signsCamera;
+    [SerializeField] private float lifeTime = 2;
 
-    void Update()
+    private void Start()
     {
-        this.transform.position = meteorPosition;
+        signsCamera = GameManager.Instance.getSignsCamera();
 
-        Vector3 pos = GameManager.Instance.getMainCamera().WorldToViewportPoint(transform.position);
+        Vector3 pos = signsCamera.WorldToViewportPoint(this.transform.position);
         pos.x = Mathf.Clamp01(pos.x);
         pos.y = Mathf.Clamp01(pos.y);
-        transform.position = Camera.main.ViewportToWorldPoint(pos);
+        this.transform.position = signsCamera.ViewportToWorldPoint(pos);
+    }
+
+    private void Update()
+    {
+        lifeTime -= Time.deltaTime;
+
+        if (lifeTime <= 0)
+            Destroy(this.gameObject);
     }
 }
