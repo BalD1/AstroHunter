@@ -940,6 +940,72 @@ RectTransform:
   m_AnchoredPosition: {x: 39.293274, y: 93.82507}
   m_SizeDelta: {x: 76.39746, y: 102.03798}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &140474653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 140474654}
+  - component: {fileID: 140474655}
+  m_Layer: 0
+  m_Name: Asteroid belt (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &140474654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140474653}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 325673049}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &140474655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140474653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489d5048b5bb55944914c7f55bfc469d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPositions: []
+  spawnsPoints:
+  - enemyName: Meteor
+    enemy: {fileID: 4799002088890249455, guid: 35e74b8b3de15ad478d80d291e043505, type: 3}
+    randomSpawn: 1
+    point: {fileID: 1691910624}
+  - enemyName: Meteor
+    enemy: {fileID: 4799002088890249455, guid: 35e74b8b3de15ad478d80d291e043505, type: 3}
+    randomSpawn: 1
+    point: {fileID: 1691910624}
+  - enemyName: Meteor
+    enemy: {fileID: 4799002088890249455, guid: 35e74b8b3de15ad478d80d291e043505, type: 3}
+    randomSpawn: 1
+    point: {fileID: 1691910624}
+  - enemyName: Meteor
+    enemy: {fileID: 4799002088890249455, guid: 35e74b8b3de15ad478d80d291e043505, type: 3}
+    randomSpawn: 1
+    point: {fileID: 1691910624}
+  - enemyName: Meteor
+    enemy: {fileID: 4799002088890249455, guid: 35e74b8b3de15ad478d80d291e043505, type: 3}
+    randomSpawn: 1
+    point: {fileID: 1691910624}
+  wave_CD: 1
 --- !u!1 &152815530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,7 +1299,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 325673049}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &184767308
 MonoBehaviour:
@@ -2035,18 +2101,21 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1100218444}
   - {fileID: 1731410483}
   - {fileID: 1117338530}
   - {fileID: 1086440096}
   - {fileID: 1651153672}
   - {fileID: 1009841564}
   - {fileID: 184767307}
+  - {fileID: 1621389419}
+  - {fileID: 1751653498}
   - {fileID: 1350839473}
   - {fileID: 1908095303}
   - {fileID: 1456477396}
-  - {fileID: 1621389419}
-  - {fileID: 1751653498}
+  - {fileID: 1188654327}
+  - {fileID: 532662268}
+  - {fileID: 140474654}
+  - {fileID: 1878951491}
   m_Father: {fileID: 2041941043}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2539,6 +2608,64 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &532662267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 532662268}
+  - component: {fileID: 532662269}
+  m_Layer: 0
+  m_Name: Please stop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &532662268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532662267}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 325673049}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &532662269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532662267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489d5048b5bb55944914c7f55bfc469d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPositions: []
+  spawnsPoints:
+  - enemyName: Mecha
+    enemy: {fileID: 4878028932118297147, guid: 517d8cdf353412c4a9ba3e9cc9833adf, type: 3}
+    randomSpawn: 1
+    point: {fileID: 1691910624}
+  - enemyName: Mecha
+    enemy: {fileID: 4878028932118297147, guid: 517d8cdf353412c4a9ba3e9cc9833adf, type: 3}
+    randomSpawn: 1
+    point: {fileID: 1373316914}
+  - enemyName: Snake
+    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 1
+    point: {fileID: 1373316914}
+  wave_CD: 2
 --- !u!1 &535184672
 GameObject:
   m_ObjectHideFlags: 0
@@ -5016,7 +5143,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 325673049}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1009841565
 MonoBehaviour:
@@ -5536,7 +5663,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 325673049}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1086440097
 MonoBehaviour:
@@ -5564,8 +5691,8 @@ MonoBehaviour:
     enemy: {fileID: 4799002088890249455, guid: 35e74b8b3de15ad478d80d291e043505, type: 3}
     randomSpawn: 1
     point: {fileID: 1587365189}
-  - enemyName: Snake
-    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+  - enemyName: Mecha
+    enemy: {fileID: 4878028932118297147, guid: 517d8cdf353412c4a9ba3e9cc9833adf, type: 3}
     randomSpawn: 0
     point: {fileID: 1264994695}
   wave_CD: 7
@@ -5701,56 +5828,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097126886}
   m_CullTransparentMesh: 0
---- !u!1 &1100218443
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1100218444}
-  - component: {fileID: 1100218445}
-  m_Layer: 0
-  m_Name: Snakes ? (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1100218444
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100218443}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 325673049}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1100218445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100218443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489d5048b5bb55944914c7f55bfc469d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPositions: []
-  spawnsPoints:
-  - enemyName: Mecha
-    enemy: {fileID: 4878028932118297147, guid: 517d8cdf353412c4a9ba3e9cc9833adf, type: 3}
-    randomSpawn: 1
-    point: {fileID: 1373316914}
-  wave_CD: 10
 --- !u!1 &1101900510
 GameObject:
   m_ObjectHideFlags: 0
@@ -6143,7 +6220,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 325673049}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1117338531
 MonoBehaviour:
@@ -6944,6 +7021,68 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1188654326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1188654327}
+  - component: {fileID: 1188654328}
+  m_Layer: 0
+  m_Name: Mechas !!
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1188654327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188654326}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 325673049}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1188654328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188654326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489d5048b5bb55944914c7f55bfc469d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPositions: []
+  spawnsPoints:
+  - enemyName: Mecha
+    enemy: {fileID: 4878028932118297147, guid: 517d8cdf353412c4a9ba3e9cc9833adf, type: 3}
+    randomSpawn: 1
+    point: {fileID: 1691910624}
+  - enemyName: Mecha
+    enemy: {fileID: 4878028932118297147, guid: 517d8cdf353412c4a9ba3e9cc9833adf, type: 3}
+    randomSpawn: 1
+    point: {fileID: 1373316914}
+  - enemyName: Mecha
+    enemy: {fileID: 4878028932118297147, guid: 517d8cdf353412c4a9ba3e9cc9833adf, type: 3}
+    randomSpawn: 1
+    point: {fileID: 1373316914}
+  - enemyName: Mecha
+    enemy: {fileID: 4878028932118297147, guid: 517d8cdf353412c4a9ba3e9cc9833adf, type: 3}
+    randomSpawn: 1
+    point: {fileID: 1373316914}
+  wave_CD: 5
 --- !u!1 &1195448273
 GameObject:
   m_ObjectHideFlags: 0
@@ -7584,7 +7723,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 325673049}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1350839474
 MonoBehaviour:
@@ -8108,7 +8247,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 325673049}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1456477397
 MonoBehaviour:
@@ -8136,7 +8275,7 @@ MonoBehaviour:
     enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
     randomSpawn: 1
     point: {fileID: 1373316914}
-  wave_CD: 1.5
+  wave_CD: 4
 --- !u!1 &1481687758
 GameObject:
   m_ObjectHideFlags: 0
@@ -9350,7 +9489,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 325673049}
-  m_RootOrder: 10
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1621389420
 MonoBehaviour:
@@ -9592,7 +9731,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 325673049}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1651153673
 MonoBehaviour:
@@ -10224,7 +10363,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 325673049}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1731410484
 MonoBehaviour:
@@ -10496,7 +10635,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 325673049}
-  m_RootOrder: 11
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1751653499
 MonoBehaviour:
@@ -10524,11 +10663,11 @@ MonoBehaviour:
     enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
     randomSpawn: 1
     point: {fileID: 1691910624}
-  - enemyName: Snake
-    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+  - enemyName: Mecha
+    enemy: {fileID: 4878028932118297147, guid: 517d8cdf353412c4a9ba3e9cc9833adf, type: 3}
     randomSpawn: 1
     point: {fileID: 1691910624}
-  wave_CD: 1
+  wave_CD: 4
 --- !u!1 &1754002775
 GameObject:
   m_ObjectHideFlags: 0
@@ -11065,6 +11204,76 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875638533}
   m_CullTransparentMesh: 0
+--- !u!1 &1878951490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1878951491}
+  - component: {fileID: 1878951492}
+  m_Layer: 0
+  m_Name: Mechas !! (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1878951491
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878951490}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 325673049}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1878951492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878951490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489d5048b5bb55944914c7f55bfc469d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPositions: []
+  spawnsPoints:
+  - enemyName: Snake
+    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 1
+    point: {fileID: 1691910624}
+  - enemyName: Snake
+    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 1
+    point: {fileID: 1373316914}
+  - enemyName: Mecha
+    enemy: {fileID: 4878028932118297147, guid: 517d8cdf353412c4a9ba3e9cc9833adf, type: 3}
+    randomSpawn: 1
+    point: {fileID: 1373316914}
+  - enemyName: Mecha
+    enemy: {fileID: 4878028932118297147, guid: 517d8cdf353412c4a9ba3e9cc9833adf, type: 3}
+    randomSpawn: 1
+    point: {fileID: 1373316914}
+  - enemyName: Meteor
+    enemy: {fileID: 4799002088890249455, guid: 35e74b8b3de15ad478d80d291e043505, type: 3}
+    randomSpawn: 1
+    point: {fileID: 1373316914}
+  - enemyName: Snake
+    enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
+    randomSpawn: 1
+    point: {fileID: 1373316914}
+  wave_CD: 5
 --- !u!1 &1898693813
 GameObject:
   m_ObjectHideFlags: 0
@@ -11228,7 +11437,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 325673049}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1908095304
 MonoBehaviour:
@@ -11284,7 +11493,7 @@ MonoBehaviour:
     enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
     randomSpawn: 1
     point: {fileID: 1373316914}
-  wave_CD: 1.5
+  wave_CD: 3
 --- !u!1 &1908604045
 GameObject:
   m_ObjectHideFlags: 0
@@ -12189,6 +12398,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8387411988629663012, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
 --- !u!1 &2038081497
