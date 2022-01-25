@@ -7,21 +7,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private GameObject player;
 
-    public int EnemiesInWave
-    {
-        get => enemiesInWave;
-        set
-        {
-            enemiesInWave = value;
-            if (value == 0)
-            {
-                IsInWave = false;
-            }
-            UIManager.Instance.UpdateEnemiesCounter(value);
-        }
-    }
-    private int enemiesInWave = 0;
-
     #region Game State
 
     public enum GameStates
@@ -84,6 +69,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         GameState = GameStates.InGame;
         EnemiesInWave = 0;
+        IsInWave = false;
     }
 
     private bool isInWave;
@@ -93,16 +79,24 @@ public class GameManager : MonoBehaviour
         set
         {
             isInWave = value;
-            if (value)
-            {
-
-            }
-            else
-            {
-
-            }
+            UIManager.Instance.SetWaveStateUI(value);
         }
     }
+
+    public int EnemiesInWave
+    {
+        get => enemiesInWave;
+        set
+        {
+            enemiesInWave = value;
+            if (value == 0)
+            {
+                IsInWave = false;
+            }
+            UIManager.Instance.UpdateEnemiesCounter(value);
+        }
+    }
+    private int enemiesInWave = 0;
 
     public Camera getMainCamera()
     {

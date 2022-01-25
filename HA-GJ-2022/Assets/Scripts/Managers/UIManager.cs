@@ -7,6 +7,7 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI enemiesCounter;
+    [SerializeField] private GameObject nextWaveText;
 
     private static UIManager instance;
     public static UIManager Instance
@@ -63,6 +64,13 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log(count);
         enemiesCounter.text = "Enemies left : \n" + count;
+    }
+
+    public void SetWaveStateUI(bool isInWave)
+    {
+        nextWaveText.SetActive(!isInWave);
+
+        enemiesCounter.enabled = isInWave;
     }
 
 }
