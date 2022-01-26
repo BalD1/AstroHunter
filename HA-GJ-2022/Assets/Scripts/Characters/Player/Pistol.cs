@@ -59,6 +59,7 @@ public class Pistol : MonoBehaviour
         float spd = speedByWave.Evaluate(wave);
         if (spd < fire_CD)
         {
+            AudioManager.Instance.Play2DSound(AudioManager.ClipsTags.powerUp);
             currentColor = effectColor.Evaluate((float)wave / (float)GameManager.Instance.maxWave);
             ParticleSystem.MainModule ma = shootParticles.main;
             ma.startColor = currentColor;

@@ -55,6 +55,7 @@ public class AudioManager : MonoBehaviour
         enemyHurt,
         enemyDeath,
         playerHurt,
+        powerUp,
 
         // musics
 
