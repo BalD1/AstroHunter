@@ -13,6 +13,7 @@ public class BoostDrop : MonoBehaviour
     private void Start()
     {
         playerRef = GameManager.Instance.getPlayerRef().GetComponent<Player>();
+        GameManager.Instance.ev_ReloadEvent.AddListener(OnReload);
     }
 
     private void Update()
@@ -36,5 +37,10 @@ public class BoostDrop : MonoBehaviour
             pickedUp = true;
             playerRef.ApplyBoost(true);
         }
+    }
+
+    private void OnReload()
+    {
+        Destroy(this.gameObject);
     }
 }
