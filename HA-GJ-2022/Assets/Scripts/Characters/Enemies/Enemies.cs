@@ -34,7 +34,10 @@ public class Enemies : Characters
     }
     protected virtual void FixedUpdate()
     {
-        Translate(direction);
+        if (GameManager.Instance.GameState == GameManager.GameStates.InGame)
+            Translate(direction);
+        else if (GameManager.Instance.GameState == GameManager.GameStates.GameOver)
+            this.body.velocity = Vector2.zero;
     }
 
     private void OnTriggerStay2D(Collider2D collision)

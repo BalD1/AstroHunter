@@ -10,7 +10,6 @@ public class Spawner : MonoBehaviour
     private int wavesIndex = 0;
     private float nextWave_TIMER;
 
-
     private void Start()
     {
         waves = new List<Wave>();
@@ -32,17 +31,20 @@ public class Spawner : MonoBehaviour
     {
         if (!firstWaveSpawned)
         {
+            UIManager.Instance.SetWaveStateUI(false);
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (GameManager.Instance.GameState == GameManager.GameStates.InGame)
                 {
                     NextWave();
                     firstWaveSpawned = true;
+                    UIManager.Instance.tutoUI.SetActive(false);
                 }
             }
         }
         else
         {
+
             if (nextWave_TIMER > 0)
             {
                 nextWave_TIMER -= Time.deltaTime;
@@ -72,6 +74,7 @@ public class Spawner : MonoBehaviour
 
     private void SpawnerReload()
     {
+        firstWaveSpawned = false;
         wavesIndex = 0;
         nextWave_TIMER = 1;
     }

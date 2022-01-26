@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] public GameObject optionsMenu;
     [SerializeField] private GameObject nextWaveText;
     [SerializeField] private GameObject waveUI;
+    [SerializeField] public GameObject tutoUI;
 
     [Header("Player related")]
     [SerializeField] private GameObject playerHUD;
@@ -61,6 +62,7 @@ public class UIManager : MonoBehaviour
         {
             case GameManager.GameStates.MainMenu:
                 playerHUD.SetActive(false);
+                tutoUI.SetActive(false);
                 mainMenu.SetActive(true);
                 waveUI.SetActive(false);
                 pauseMenu.SetActive(false);
@@ -77,6 +79,7 @@ public class UIManager : MonoBehaviour
                 break;
 
             case GameManager.GameStates.Pause:
+                tutoUI.SetActive(false);
                 playerHUD.SetActive(false);
                 waveUI.SetActive(false);
                 pauseMenu.SetActive(true);
@@ -84,11 +87,13 @@ public class UIManager : MonoBehaviour
                 break;
 
             case GameManager.GameStates.Win:
+                tutoUI.SetActive(false);
                 endgameMenu.SetActive(true);
                 endgameTitle.SetText("YOU WON !");
                 break;
 
             case GameManager.GameStates.GameOver:
+                tutoUI.SetActive(false);
                 endgameTitle.SetText("GAME OVER");
                 endgameMenu.SetActive(true);
                 break;

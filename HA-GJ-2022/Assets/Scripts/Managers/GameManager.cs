@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
             switch (value)
             {
                 case GameStates.MainMenu:
+                    isInWave = false;
                     foreach (UnlockableSkins s in unlockableSkins)
                         s.conditions.setCondition();
 
@@ -64,6 +65,9 @@ public class GameManager : MonoBehaviour
 
                 case GameStates.InGame:
                     Time.timeScale = 1;
+                    if (!isInWave)
+                        UIManager.Instance.tutoUI.SetActive(true);
+
                     if (GS == GameStates.Win || GS == GameStates.GameOver)
                         ev_ReloadEvent.Invoke();
                     player.GetComponent<Player>().Render(true);
@@ -74,13 +78,13 @@ public class GameManager : MonoBehaviour
                     break;
 
                 case GameStates.Win:
-                    Time.timeScale = 0;
+                    isInWave = false;
                     wonGameOnce = true;
                     PlayerPrefs.SetInt("WonGame", 1);
                     break;
 
                 case GameStates.GameOver:
-                    Time.timeScale = 0;
+                    isInWave = false;
                     deathsCount++;
                     PlayerPrefs.SetInt("DeathsCount", deathsCount);
                     break;
