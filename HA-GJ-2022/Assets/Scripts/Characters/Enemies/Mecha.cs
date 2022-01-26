@@ -81,6 +81,14 @@ public class Mecha : Enemies
         this.characterStats.speed = dashSpeed;
     }
 
+    protected override void Death()
+    {
+        base.Death();
+
+        if (GameManager.Instance.GameState == GameManager.GameStates.InGame)
+            GameManager.Instance.killsCount++;
+    }
+
     private void StopDash()
     {
         dashFlag = false;

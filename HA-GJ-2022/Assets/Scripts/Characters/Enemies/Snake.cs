@@ -20,6 +20,14 @@ public class Snake : Enemies
         }
     }
 
+    protected override void Death()
+    {
+        base.Death();
+
+        if (GameManager.Instance.GameState == GameManager.GameStates.InGame)
+            GameManager.Instance.killsCount++;
+    }
+
     protected override void Translate(Vector2 direction)
     {
         if (CanMove())

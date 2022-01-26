@@ -31,6 +31,14 @@ public class Meteor : Enemies
             timeBeforeLaunch -= Time.deltaTime;
     }
 
+    protected override void Death()
+    {
+        base.Death();
+
+        if (GameManager.Instance.GameState == GameManager.GameStates.InGame)
+            GameManager.Instance.killsCount++;
+    }
+
     private void SetDirection()
     {
         Vector2 playerPos = GameManager.Instance.getPlayerRef().transform.position;

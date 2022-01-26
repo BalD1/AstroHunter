@@ -14,6 +14,20 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public UnityEvent ev_ReloadEvent;
 
+    [Header("Skins unlock conditions")]
+    public bool wonGameOnce;
+    public bool wonGameOnceNoHit;
+    public int killsCount;
+    public int deathsCount;
+
+    [System.Serializable]
+    public struct UnlockableSkins
+    {
+        public string name;
+        public SkinsUnlock conditions;
+    }
+    public List<UnlockableSkins> unlockableSkins;
+
     #region Game State
 
     public enum GameStates
@@ -36,8 +50,15 @@ public class GameManager : MonoBehaviour
             switch (value)
             {
                 case GameStates.MainMenu:
+                    foreach (UnlockableSkins s in unlockableSkins)
+                        s.conditions.setCondition();
+
+                    CheckUnlockedSkins();
                     ev_ReloadEvent.Invoke();
                     player.GetComponent<Player>().Render(false);
+
+                    if (killsCount > PlayerPrefs.GetInt("KillsCount"))
+                        PlayerPrefs.SetInt("KillsCount", killsCount);
                     break;
 
                 case GameStates.InGame:
@@ -53,10 +74,14 @@ public class GameManager : MonoBehaviour
 
                 case GameStates.Win:
                     Time.timeScale = 0;
+                    wonGameOnce = true;
+                    PlayerPrefs.SetInt("WonGame", 1);
                     break;
 
                 case GameStates.GameOver:
                     Time.timeScale = 0;
+                    deathsCount++;
+                    PlayerPrefs.SetInt("DeathsCount", deathsCount);
                     break;
 
                 default:
@@ -84,12 +109,26 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+        PlayerPrefs.DeleteAll();
+
+        if (PlayerPrefs.HasKey("WonGame"))
+            wonGameOnce = PlayerPrefs.GetInt("WonGame") >= 1 ? true : false;
+        if (PlayerPrefs.HasKey("WonGameNoHit"))
+            wonGameOnceNoHit = PlayerPrefs.GetInt("WonGameNoHit") >= 1 ? true : false;
+        Debug.Log(PlayerPrefs.GetInt("WonGameNoHit"));
+        if (PlayerPrefs.HasKey("KillsCount"))
+            killsCount = PlayerPrefs.GetInt("KillsCount");
+        if (PlayerPrefs.HasKey("DeathsCount"))
+            deathsCount = PlayerPrefs.GetInt("DeathsCount");
+
         GameState = GameStates.MainMenu;
         EnemiesInWave = 0;
         IsInWave = false;
 
         ev_ReloadEvent = new UnityEvent();
         ev_ReloadEvent.AddListener(Reload);
+
     }
 
     private void Start()
@@ -112,6 +151,12 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.A))
+            if (player.GetComponent<Player>().GetStats().currentHP == player.GetComponent<Player>().GetStats().maxHP)
+            {
+                PlayerPrefs.SetInt("WonGameNoHit", 1);
+            }
     }
 
     private bool isInWave;
@@ -155,5 +200,14 @@ public class GameManager : MonoBehaviour
     public void Reload()
     {
         isInLastWave = false;
+    }
+
+    public void CheckUnlockedSkins()
+    {
+        foreach (UnlockableSkins s in unlockableSkins)
+        {
+            if (s.conditions.canUnlockSkin())
+                UIManager.Instance.UnlockSkin(s.name);
+        }
     }
 }

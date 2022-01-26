@@ -22,6 +22,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image portrait;
 
     [System.Serializable]
+    public struct Skins
+    {
+        public string name;
+        public GameObject page;
+        public Button button;
+    }
+    [SerializeField] private List<Skins> skinsList;
+
+    [System.Serializable]
     public struct PlayerPortraits
     {
         public string name;
@@ -180,6 +189,18 @@ public class UIManager : MonoBehaviour
             case "EXIT":
                 Application.Quit();
                 break;
+        }
+    }
+
+    public void UnlockSkin(string _name)
+    {
+        foreach(Skins s in skinsList)
+        {
+            if (s.name.Equals(_name))
+            {
+                s.button.interactable = true;
+                s.button.GetComponent<Image>().color = Color.white;
+            }
         }
     }
 
