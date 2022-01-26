@@ -12346,6 +12346,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8387411987273156526, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
+      propertyPath: fire_CD
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8387411987273156526, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
+      propertyPath: speedByWave.m_Curve.Array.data[1].value
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 8387411987273156526, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
+      propertyPath: speedByWave.m_Curve.Array.data[2].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8387411987273156526, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
+      propertyPath: speedByWave.m_Curve.Array.data[2].outSlope
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8387411987796522355, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
       propertyPath: hpBar
       value: 
@@ -12398,10 +12414,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8387411988629663012, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60492ab9d1a94714ab910f5ea535c056, type: 3}
 --- !u!1 &2038081497
