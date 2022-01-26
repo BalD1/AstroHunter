@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public bool isInLastWave = false;
     [HideInInspector] public int maxWave;
+    [HideInInspector] public int currentWave;
 
     [HideInInspector] public UnityEvent ev_ReloadEvent;
 
@@ -116,7 +117,6 @@ public class GameManager : MonoBehaviour
             wonGameOnce = PlayerPrefs.GetInt("WonGame") >= 1 ? true : false;
         if (PlayerPrefs.HasKey("WonGameNoHit"))
             wonGameOnceNoHit = PlayerPrefs.GetInt("WonGameNoHit") >= 1 ? true : false;
-        Debug.Log(PlayerPrefs.GetInt("WonGameNoHit"));
         if (PlayerPrefs.HasKey("KillsCount"))
             killsCount = PlayerPrefs.GetInt("KillsCount");
         if (PlayerPrefs.HasKey("DeathsCount"))

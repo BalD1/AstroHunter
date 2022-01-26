@@ -18,6 +18,8 @@ public class Player : Characters
     [SerializeField] private float hurtPortrait_CD;
     [SerializeField] private Animator animator;
 
+    private bool boostIsActive = false;
+
     public enum Skins
     {
         Base,
@@ -126,11 +128,13 @@ public class Player : Characters
     public void PlayerReload()
     {
         Heal(characterStats.maxHP);
+        weapon.GetComponent<Pistol>().Reset();
     }
 
     public void UpgradeWeapon(int wave)
     {
-        weapon.GetComponent<Pistol>().UpgradeWeapon(wave);
+        if (!boostIsActive)
+            weapon.GetComponent<Pistol>().UpgradeWeapon(wave);
     }
 
     public void Render(bool r)
@@ -177,5 +181,15 @@ public class Player : Characters
                 break;
         }
         Time.timeScale = 0;
+    }
+
+    public void ApplyBoost(bool active)
+    {
+        boostIsActive = active;
+        if (active)
+            weapon.GetComponent<Pistol>().UpgradeWeapon(GameManager.Instance.maxWave);
+        else
+            weapon.GetComponent<Pistol>().ForceUpgrade(GameManager.Instance.currentWave);
+
     }
 }

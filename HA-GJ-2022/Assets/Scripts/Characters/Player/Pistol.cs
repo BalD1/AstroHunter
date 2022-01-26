@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pistol : MonoBehaviour
 {
-    [SerializeField] private float fire_CD;
+    [SerializeField] public float fire_CD;
     [SerializeField] private float projectilesSpeed;
     [SerializeField] private Transform firePoint;
     [SerializeField] private Characters owner;
@@ -66,5 +66,23 @@ public class Pistol : MonoBehaviour
             upgradeParticles.Play();
             fire_CD = spd;
         }
+    }
+    public void ForceUpgrade(int wave)
+    {
+        float spd = speedByWave.Evaluate(wave);
+        currentColor = effectColor.Evaluate((float)wave / (float)GameManager.Instance.maxWave);
+        ParticleSystem.MainModule ma = shootParticles.main;
+        ma.startColor = currentColor;
+        fire_CD = spd;
+
+    }
+
+    public void Reset()
+    {
+        float spd = speedByWave.Evaluate(0);
+        fire_CD = spd;
+        currentColor = effectColor.Evaluate(0);
+        ParticleSystem.MainModule ma = shootParticles.main;
+        ma.startColor = currentColor;
     }
 }

@@ -161,6 +161,8 @@ MonoBehaviour:
   sign: {fileID: 270736468600544172, guid: d09ae103ebec2c14eb89e841027964a1, type: 3}
   lifeTime: 5
   timeBeforeLaunch: 2
+  drop: {fileID: 7154022085650907728, guid: c57734b7f96c62f458078bebbace40c1, type: 3}
+  dropChances: 30
 --- !u!50 &1738727451
 Rigidbody2D:
   serializedVersion: 4

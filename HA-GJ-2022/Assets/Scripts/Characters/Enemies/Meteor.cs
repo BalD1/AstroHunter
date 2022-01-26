@@ -7,6 +7,8 @@ public class Meteor : Enemies
     [SerializeField] private GameObject sign;
     [SerializeField] private float lifeTime;
     [SerializeField] private float timeBeforeLaunch = 1;
+    [SerializeField] private GameObject drop;
+    [SerializeField] private int dropChances;
     private bool directionIsSet = false;
 
     protected override void Start()
@@ -37,6 +39,9 @@ public class Meteor : Enemies
 
         if (GameManager.Instance.GameState == GameManager.GameStates.InGame)
             GameManager.Instance.killsCount++;
+
+        if (Random.Range(0, 100) < dropChances)
+            Instantiate(drop, this.transform.position, Quaternion.identity);
     }
 
     private void SetDirection()

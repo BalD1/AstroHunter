@@ -65,6 +65,7 @@ public class Spawner : MonoBehaviour
 
         nextWave_TIMER = waves[wavesIndex].GetWaveCooldown();
         waves[wavesIndex].gameObject.SetActive(true);
+        GameManager.Instance.currentWave = wavesIndex;
         GameManager.Instance.getPlayerRef().GetComponent<Player>().UpgradeWeapon(wavesIndex);
         wavesIndex++;
     }
