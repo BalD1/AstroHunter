@@ -147,16 +147,16 @@ public class GameManager : MonoBehaviour
                     break;
 
                 case GameStates.Pause:
-                    GameState = GameStates.InGame;
+                    if (UIManager.Instance.optionsMenu.activeSelf)
+                    {
+                        UIManager.Instance.optionsMenu.SetActive(false);
+                        UIManager.Instance.pauseMenu.SetActive(true);
+                    }
+                    else
+                        GameState = GameStates.InGame;
                     break;
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.A))
-            if (player.GetComponent<Player>().GetStats().currentHP == player.GetComponent<Player>().GetStats().maxHP)
-            {
-                PlayerPrefs.SetInt("WonGameNoHit", 1);
-            }
     }
 
     private bool isInWave;

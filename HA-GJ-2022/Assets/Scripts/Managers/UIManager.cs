@@ -8,11 +8,11 @@ public class UIManager : MonoBehaviour
 {
     [Header("Menus / UI")]
     [SerializeField] private GameObject mainMenu;
-    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] public GameObject pauseMenu;
     [SerializeField] private GameObject endgameMenu;
     [SerializeField] private TextMeshProUGUI endgameTitle;
     [SerializeField] private GameObject shopMenu;
-    [SerializeField] private GameObject optionsMenu;
+    [SerializeField] public GameObject optionsMenu;
     [SerializeField] private GameObject nextWaveText;
     [SerializeField] private GameObject waveUI;
 
@@ -68,6 +68,7 @@ public class UIManager : MonoBehaviour
                 break;
 
             case GameManager.GameStates.InGame:
+                optionsMenu.SetActive(false);
                 playerHUD.SetActive(true);
                 mainMenu.SetActive(false);
                 waveUI.SetActive(true);
