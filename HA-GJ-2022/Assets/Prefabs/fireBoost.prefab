@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 7154022085650907734}
-  boost_DURATION: 7
+  boost_DURATION: 5
 --- !u!61 &-7986410243147017215
 BoxCollider2D:
   m_ObjectHideFlags: 0
