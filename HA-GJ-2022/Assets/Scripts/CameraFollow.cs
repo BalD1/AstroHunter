@@ -14,9 +14,10 @@ public class CameraFollow : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 dest = (Vector2)target.position + offset;
-        Vector2 smooth = Vector2.Lerp((Vector2)this.transform.position, dest, smoothSpeed);
+        Vector3 smooth = Vector2.Lerp(this.transform.position, dest, smoothSpeed);
         smooth.x = Mathf.Clamp(smooth.x, -clamp.x, clamp.x);
         smooth.y = Mathf.Clamp(smooth.y, -clamp.y, clamp.y);
+        smooth.z = -10;
         this.transform.position = smooth;
     }
 }
