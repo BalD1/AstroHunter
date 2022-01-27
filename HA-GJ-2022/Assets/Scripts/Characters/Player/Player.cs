@@ -19,6 +19,7 @@ public class Player : Characters
     [SerializeField] private Animator animator;
 
     private bool boostIsActive = false;
+    private bool tookHit = false;
 
     public enum Skins
     {
@@ -105,6 +106,7 @@ public class Player : Characters
     public override void TakeDamages(int amount)
     {
         base.TakeDamages(amount);
+        tookHit = true;
         source.PlayOneShot(AudioManager.Instance.GetAudioClip(AudioManager.ClipsTags.playerHurt));
 
         UIManager.Instance.FillBar(ref hpBar, characterStats.currentHP, characterStats.maxHP);
@@ -129,6 +131,7 @@ public class Player : Characters
     {
         Heal(characterStats.maxHP);
         weapon.GetComponent<Pistol>().Reset();
+        tookHit = false;
     }
 
     public void UpgradeWeapon(int wave)
@@ -192,4 +195,6 @@ public class Player : Characters
             weapon.GetComponent<Pistol>().ForceUpgrade(GameManager.Instance.currentWave);
 
     }
+
+    public bool HasTookHit() { return this.tookHit; }
 }

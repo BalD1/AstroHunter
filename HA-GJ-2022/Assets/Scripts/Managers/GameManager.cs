@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
 
                 case GameStates.Win:
                     isInWave = false;
+                    wonGameOnceNoHit = !player.GetComponent<Player>().HasTookHit();
                     wonGameOnce = true;
                     PlayerPrefs.SetInt("WonGame", 1);
                     break;
