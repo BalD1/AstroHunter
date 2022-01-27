@@ -9758,11 +9758,11 @@ MonoBehaviour:
     enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
     randomSpawn: 1
     point: {fileID: 1373316914}
-  - enemyName: Mecha
+  - enemyName: Snake
     enemy: {fileID: 2229983947876068660, guid: eb1f0eaf6d53c00449daf02f061ebf6e, type: 3}
     randomSpawn: 1
     point: {fileID: 1373316914}
-  - enemyName: Snake
+  - enemyName: Mecha
     enemy: {fileID: 4878028932118297147, guid: 517d8cdf353412c4a9ba3e9cc9833adf, type: 3}
     randomSpawn: 1
     point: {fileID: 1373316914}
